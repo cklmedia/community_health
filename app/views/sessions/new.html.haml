@@ -1,0 +1,27 @@
+!!!
+%html
+  %head
+    %title HealthManager
+    = stylesheet_link_tag    'application', media: 'all'
+    = javascript_include_tag 'application'
+    = csrf_meta_tags
+  %body
+    = render 'shared/show_error'
+    .session_big_box
+      .session_pic
+        %h2 社区健康管理平台
+        %img{:src => "/assets/session_pic.png"}
+      .session_form
+        = form_for :session, :url => sessions_path do |f|
+          .form-group
+            = f.text_field :tel,:class=>'form-control',:placeholder=>'手机号码'
+          .form-group
+            = f.text_field :password,:class=>'form-control',:placeholder=>'密码'
+          .form-group
+            .switch.switch-large.has-switch{:style => "width:100%","data-off" => "primary","data-on" => "info"}
+              %input.session_form_admin{:checked => "checked", :type => "checkbox",:name => "admin"}
+          = f.submit "登陆",:class=>'btn btn-success form_button'
+      .create_user_box
+        = link_to "+注册","#",:class=>"create_user_link"
+      .clr
+    = render 'shared/modal/create_user'

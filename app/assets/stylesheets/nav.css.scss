@@ -10,8 +10,6 @@
 .second_nav{position: absolute;width: 100px;right: 45px;z-index: 1180;text-align: center;}
 .second_nav li{background: linear-gradient(90deg,#287f44,rgb(203, 245, 219))}
 
-.active{font-weight: 600;background-color: #dfdfdf !important;list-style-type: none;}
-
 a:hover{text-decoration: none;}
 
 .left_nav a{display: block;position: relative;padding: 8px 0 8px 15px;color: white;font-size: 18px;}
@@ -24,7 +22,7 @@ a:hover{text-decoration: none;}
 .header_title{float: left;}
 // 低栏
 .flooter{background-color: #555;color: white;min-width:960px; padding-right: 45px;}
-
+// 二级菜单悬浮动画效果
 .second_nav li:hover{
 	animation:second_nav_hover 0.3s linear 0s infinite alternate;
 	-moz-animation:second_nav_hover 0.3s linear 0s infinite alternate;/* Firefox */

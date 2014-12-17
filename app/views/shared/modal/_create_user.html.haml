@@ -1,0 +1,64 @@
+#create_user_modal.modal.fade{"aria-labelledby" => "modal-switch-label", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} ×
+          %span.sr-only Close
+        #modal-switch-label.modal-title{:style => "color:#2fa857;font-size:25px;"} 欢迎成为我们的一员
+      .modal-body
+        %div{:role => "tabpanel"}
+          %ul.nav.nav-tabs
+            %li.active{:role => "presentation"}
+              %a{"data-toggle" => "tab", :href => "#member"} 居民
+            %li{:role => "presentation"}
+              %a{"data-toggle" => "tab", :href => "#doctor"} 社区医生
+          #myTabContent.tab-content
+            #member.tab-pane.fade.active.in
+              .Tab_content_form_box
+                = form_for :session, :url => sessions_path do |f|
+                  .form-group
+                    = f.text_field :name,:class=>'form-control',:placeholder=>'姓名'
+                  .form-group
+                    = f.text_field :tel,:class=>'form-control',:placeholder=>'联系方式'
+                  .form-group
+                    = f.text_field :birthday,:class=>'form-control',:placeholder=>'出生年月(例：1993-01-24)'
+                  .form-group
+                    = f.text_field :password,:class=>'form-control',:placeholder=>'密码'
+                  .form-group
+                    = f.text_field :password_confirmation,:class=>'form-control',:placeholder=>'密码确认'
+                  .form-group
+                    .row
+                      .col-md-4
+                        = f.text_field :building,:class=>'form-control',:placeholder=>'幢(例：17)'
+                      .col-md-4
+                        = f.text_field :unit,:class=>'form-control',:placeholder=>'单元(例：3)'
+                      .col-md-4
+                        = f.text_field :house,:class=>'form-control',:placeholder=>'门牌(204)'
+                  .form-group
+                    = f.file_field :avatar,:class=>'form-control',:placeholder=>'头像'
+                  .form-group
+                    .switch.switch-large.has-switch{:style => "width:100%","data-off" => "danger","data-on" => "primary"}
+                      %input.create_member_sex{:checked => "checked", :type => "checkbox",:name => "sex"}
+                  .form-group
+                    = f.text_area :health,:class=>'form-control',:placeholder=>'身体现状，包括已患有到慢性疾病，或者特殊情况。'
+                  = f.submit "注册",:class=>'btn btn-success form_button'
+            #doctor.tab-pane.fade
+              .Tab_content_form_box
+                = form_for :session, :url => sessions_path do |f|
+                  .form-group
+                    = f.text_field :name,:class=>'form-control',:placeholder=>'姓名'
+                  .form-group
+                    = f.text_field :tel,:class=>'form-control',:placeholder=>'联系电话'
+                  .form-group
+                    = f.text_field :password,:class=>'form-control',:placeholder=>'密码'
+                  .form-group
+                    = f.text_field :password_confirmation,:class=>'form-control',:placeholder=>'密码确认'
+                  .form-group
+                    = f.file_field :avatar,:class=>'form-control',:placeholder=>'头像'
+                  .form-group
+                    .switch.switch-large.has-switch{:style => "width:100%","data-off" => "danger","data-on" => "primary"}
+                      %input.create_member_sex{:checked => "checked", :type => "checkbox",:name => "sex"}
+                  .form-group
+                    = f.text_area :health,:class=>'form-control',:placeholder=>'简介，包括自己擅长的专业领域。'
+                  = f.submit "注册",:class=>'btn btn-success form_button'
