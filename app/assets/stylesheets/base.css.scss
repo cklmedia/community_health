@@ -1,0 +1,15 @@
+@import "bootstrap";
+@font-face{
+  font-family: 'SourceHanSans';
+  src: url(/assets/SourceHanSans-ExtraLight.otf);
+}
+*{margin: 0;padding: 0;}
+body{font-family: SourceHanSans;}
+li{list-style-type: none;}
+ul{padding: 0;}
+.clr{clear: both;}
+.body_main_content{min-width:960px;height:auto; overflow:hidden}
+.show_variable_paginate{float: right;}
+.alert{padding: 5px !important;}
+// 背景通用属性
+.bac_box{background-size: cover;}

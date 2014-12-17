@@ -1,0 +1,12 @@
+%nav#top_nav
+  .header_title
+    %ul
+      %li
+        %a{:href => root_path,:style => "font-size: 17px;"} Community Health
+  .header_user
+    %ul
+      %li= "柴凯龙"
+      %li
+        = link_to("#",method: "delete",data:{ confirm: '确认退出吗?'})do
+          %span.glyphicon.glyphicon-log-out
+  .clr
