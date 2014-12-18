@@ -11,7 +11,8 @@ class SessionsController < ApplicationController
   	if user && user.authenticate(params[:session][:password])
       sign_in user
       flash[:success] = "欢迎你！#{user.name}"
-      redirect_to root_path
+      redirect_to root_path if user.class.to_s == "Doctor"
+      redirect_to members_path if user.class.to_s == "Member"
     else
       flash[:danger] = "联系方式或密码不一致，请确认重新登录！"
       redirect_to new_session_path

@@ -1,0 +1,26 @@
+.edit_user_big_box
+  .edit_user_pic
+    %h2 社区医生个人信息编辑
+    %img{:src => "/assets/session_pic.png"}
+  .edit_user_form
+    = form_for(@doctor) do |f|
+      .form-group
+        = f.text_field :name,:class=>'form-control',:placeholder=>'姓名'
+      .form-group
+        = f.text_field :tel,:class=>'form-control',:placeholder=>'联系电话'
+      .form-group
+        = f.password_field :password,:class=>'form-control',:placeholder=>'密码'
+      .form-group
+        = f.password_field :password_confirmation,:class=>'form-control',:placeholder=>'密码确认'
+      .form-group
+        .user_avater_input.form-control
+          .col-md-2
+            = f.label :avatar, "头像"
+          .col-md-10
+            = f.file_field :avatar,:accept =>"image/gif, image/jpeg,image/png"
+      .form-group
+        .switch.switch-large.has-switch.user_sex{:style => "width:100%","data-off" => "danger","data-on" => "primary"}
+          %input.create_member_sex{:checked => "checked", :type => "checkbox",:name => "sex"}
+      .form-group
+        = f.text_area :introduce,:class=>'form-control',:placeholder=>'简介，包括自己擅长的专业领域。'
+      = f.submit "注册",:class=>'btn btn-success form_button'

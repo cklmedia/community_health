@@ -1,0 +1,103 @@
+%ul#sidenav
+  %li.indicator.current
+    %a{:href => "#member_box_1"}*
+  %li.indicator
+    %a{:href => "#member_box_2"}*
+  %li.indicator
+    %a{:href => "#member_box_3"}*
+  %li.indicator
+    %a{:href => "#member_box_4"}*
+  %li.indicator
+    %a{:href => "#member_box_5"}*
+  %li.indicator
+    %a{:href => "#member_box_6"}*
+  %li.indicator
+    %a{:href => "#member_box_7"}*
+.bac_box#member_box_1
+  .member_main_content
+    .member_pic
+      %h2 血压、心率
+      %img{:src => "/assets/session_pic.png"}
+    .member_chart_box
+      .chart_arrow
+        .chart_left_arrow
+          %img{:src => "/assets/green_left_arrow.png"}
+        .chart_chart
+          %img{:src => "/assets/fuck.png"}
+        .chart_right_arrow
+          %img{:src => "/assets/green_right_arrow.png"}
+        .clr
+    .clr
+.bac_box#member_box_2
+  .member_main_content
+    .member_pic
+      %h2 血糖
+      %img{:src => "/assets/session_pic.png"}
+    .member_chart_box
+      .chart_arrow
+        .chart_left_arrow
+          %img{:src => "/assets/white_left_arrow.png"}
+        .chart_chart
+          %img{:src => "/assets/fuck.png"}
+        .chart_right_arrow
+          %img{:src => "/assets/white_right_arrow.png"}
+        .clr
+    .clr
+.bac_box#member_box_3
+  .member_main_content
+    .member_pic
+      %h2 尿酸
+      %img{:src => "/assets/session_pic.png"}
+    .member_chart_box
+      .chart_arrow
+        .chart_left_arrow
+          %img{:src => "/assets/green_left_arrow.png"}
+        .chart_chart
+          %img{:src => "/assets/fuck.png"}
+        .chart_right_arrow
+          %img{:src => "/assets/green_right_arrow.png"}
+        .clr
+    .clr
+.bac_box#member_box_4
+  .member_main_content
+    .member_pic
+      %h2 体温
+      %img{:src => "/assets/session_pic.png"}
+    .member_chart_box
+      .chart_arrow
+        .chart_left_arrow
+          %img{:src => "/assets/green_left_arrow.png"}
+        .chart_chart
+          %img{:src => "/assets/fuck.png"}
+        .chart_right_arrow
+          %img{:src => "/assets/green_right_arrow.png"}
+        .clr
+    .clr
+.bac_box#member_box_5
+  .member_main_content
+    .member_pic
+      %h2 胆固醇
+      %img{:src => "/assets/session_pic.png"}
+    .member_chart_box
+      .chart_arrow
+        .chart_left_arrow
+          %img{:src => "/assets/green_left_arrow.png"}
+        .chart_chart
+          %img{:src => "/assets/fuck.png"}
+        .chart_right_arrow
+          %img{:src => "/assets/green_right_arrow.png"}
+        .clr
+    .clr
+.bac_box#member_box_6
+  .member_main_content
+    .member_pic
+      %h2 我们之间纽带
+      %img{:src => "/assets/session_pic.png"}
+      %span.choose_doctor_num{:style => "display:none"}= Doctor.count
+    .member_chart_box
+      - if current_user.doctor_id.nil?
+        %a#choose_doctor{:href => "#"}
+          %img{:src => "/assets/session_pic.png"}
+    .clr
+.bac_box#member_box_7
+= render 'shared/modal/choose_doctor'

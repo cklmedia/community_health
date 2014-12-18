@@ -1,0 +1,8 @@
+.accordian
+    %ul
+      - Doctor.all.each do |d|
+        %li
+          .image_title
+            %a{:href => "#"}=d.name
+          %a{:href => "#"}
+            %img{:src => "http://thecodeplayer.com/uploads/media/3yiC6Yq.jpg"}

@@ -2,9 +2,14 @@
   .header_title
     %ul
       %li
-        %a{:href => root_path,:style => "font-size: 17px;"} 社区健康管理平台
+        %img{:src => "/assets/session_pic.png"}
+      %li
+        %a{:href => get_logo_url(current_user.class.to_s),:style => "font-size: 17px;"} 社区健康管理平台
   .header_user
     %ul
+      %li
+        = link_to(get_user_edit_url(current_user.class.to_s))do
+          %img.img-circle{:src => "#{current_user.avatar_url}"}
       %li= current_user.name
       %li
         = link_to(session_path(current_user),method: "delete",data:{ confirm: '确认退出吗?'})do

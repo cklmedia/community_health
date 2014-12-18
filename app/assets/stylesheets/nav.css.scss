@@ -19,7 +19,11 @@ a:hover{text-decoration: none;}
 #top_nav a{color: #2fa857;}
 #top_nav ul li{float: left;padding: 15px;display: block;}
 .header_user{float: right;}
-.header_title{float: left;}
+.header_user ul li:first-child{padding: 10px !important;}
+.header_user ul li:first-child img {width: 30px;height: 30px;border: 1px solid;padding: 1px;}
+.header_title{float: left;margin-left: 45px;}
+.header_title ul li:first-child{padding: 0px !important;}
+.header_title ul li:first-child img{width: 80px;height: 55px;}
 // 低栏
 .flooter{background-color: #555;color: white;min-width:960px; padding-right: 45px;}
 // 二级菜单悬浮动画效果

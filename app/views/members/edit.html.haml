@@ -1,0 +1,36 @@
+.edit_user_big_box
+  .edit_user_pic
+    %h2 居民个人信息编辑
+    %img{:src => "/assets/session_pic.png"}
+  .edit_user_form
+    = form_for(@member) do |f|
+      .form-group
+        = f.text_field :name,:class=>'form-control',:placeholder=>'姓名'
+      .form-group
+        = f.text_field :tel,:class=>'form-control',:placeholder=>'联系方式'
+      .form-group
+        = f.text_field :birthday,:class=>'form-control',:placeholder=>'出生年月(例：1993-01-24)'
+      .form-group
+        = f.password_field :password,:class=>'form-control',:placeholder=>'密码'
+      .form-group
+        = f.password_field :password_confirmation,:class=>'form-control',:placeholder=>'密码确认'
+      .form-group
+        .row
+          .col-md-4
+            = f.text_field :building,:class=>'form-control',:placeholder=>'幢(例：17)'
+          .col-md-4
+            = f.text_field :unit,:class=>'form-control',:placeholder=>'单元(例：3)'
+          .col-md-4
+            = f.text_field :house,:class=>'form-control',:placeholder=>'门牌(204)'
+      .form-group
+        .user_avater_input.form-control
+          .col-md-2
+            = f.label :avatar, "头像"
+          .col-md-10
+            = f.file_field :avatar,:accept =>"image/gif, image/jpeg,image/png"
+      .form-group
+        .switch.switch-large.has-switch.user_sex{:style => "width:100%","data-off" => "danger","data-on" => "primary"}
+          %input.create_member_sex{:checked => "checked", :type => "checkbox",:name => "sex"}
+      .form-group
+        = f.text_area :health,:class=>'form-control',:placeholder=>'身体现状，包括已患有到慢性疾病，或者特殊情况。'
+      = f.submit "注册",:class=>'btn btn-success form_button'

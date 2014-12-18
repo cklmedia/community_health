@@ -1,0 +1,9 @@
+#choose_doctor_modal.modal.fade.in{:role => "dialog", :tabindex => "-1","aria-hidden"=>"true"}
+  .accordian
+    %ul
+      - Doctor.all.each do |d|
+        %li
+          .image_title
+            %a{:href => "#"}=d.name
+          %a{:href => "#"}
+            %img{:src => "http://thecodeplayer.com/uploads/media/3yiC6Yq.jpg"}

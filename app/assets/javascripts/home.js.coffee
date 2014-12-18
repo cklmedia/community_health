@@ -25,10 +25,9 @@ $(document).ready ->
   $(window).scroll ->
     w_top = $(window).scrollTop()
     # if w_top == 0 then $("#top_nav").css("display","block") else $("#top_nav").css("display","none")
-    # 循环设置模块的背景图片性质
-    # i = 0
-    # while i < bac_box_num - 1
-    #   if i * h <= w_top and w_top < (i + 1) * h
-    #     $(".bac_box").eq(i).css "background-attachment", "fixed"
-    #     $(".bac_box").eq(i + 1).css "background-attachment", "scroll"
-    #   i++
+    i = 0
+    while i <= bac_box_num - 1
+      if i * h <= w_top and w_top < (i + 1) * h
+        $(".indicator").removeClass "current"
+        $(".indicator").eq(i).addClass "current"
+      i++

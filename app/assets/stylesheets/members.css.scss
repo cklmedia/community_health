@@ -1,3 +1,54 @@
-// Place all the styles related to the Members controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+// 编辑页面
+.edit_user_big_box{width: 80%;margin: auto;margin-top:70px;min-width: 960px;overflow: hidden;}
+.edit_user_pic{width: 35%;float: left;margin-right: 5%;height: 300px;}
+.edit_user_pic img{width: 100%;}
+.edit_user_pic h2{color: #2fa857;text-align: center;}
+.edit_user_form{width: 60%;float: left;min-width: 300px;}
+.form_button{width: 100%;}
+// 注册modal
+.create_user_box{width: 80px;height: 80px;border-radius: 40px;background: #2FAD90;margin: 0px;float: left;top: 20px;position: relative;}
+.create_user_box a{color: white;font-size: 28px;display: block;padding: 22px 2px;}
+.Tab_content_form_box{margin-top: 15px;}
+// 主页
+#member_box_2{background: rgb(141, 205, 159);}
+#member_box_3{background: rgb(198, 228, 226);}
+#member_box_4{background: rgb(199, 182, 194);}
+#member_box_5{background: rgb(152, 195, 208);}
+#member_box_6{background: rgb(218, 203, 165);}
+.member_main_content{width: 80%;margin: auto;min-width: 960px;overflow: hidden;padding-top: 170px;}
+.member_pic{width: 35%;float: left;margin-right: 5%;height: 300px;}
+.member_pic img{width: 100%;}
+.member_pic h2{color: #2fa857;text-align: center;}
+.member_chart_box{width: 60%;float: left;min-width: 300px;}
+// 主页表格
+.member_chart_box .chart_arrow{}
+.chart_left_arrow{width:10%;float: left;padding-top: 10%; }
+.chart_left_arrow img{width:100%;}
+.chart_right_arrow{width:10%;float: left;padding-top: 10%;}
+.chart_right_arrow img{width:100%;}
+.chart_chart{width:75%;margin-left: 2%;margin-right: 2%;float: left;}
+
+// 临时
+.member_chart_box img{width: 100%;}
+
+// 侧边导航
+#sidenav{width: auto;height: 300px;position: fixed;z-index: 950;right: 10px;margin-top: -76px;top: 45%;}
+#sidenav .indicator{background: url(/assets/side_nav.png) no-repeat;width: 18px;height: 40px;right: 0;cursor: pointer;display: block;margin-top: 5px;}
+#sidenav .current{background: url(/assets/side_nav_next.png) no-repeat;width: 20px;height: 40px;right: 0;}
+#sidenav li a{display: block;padding: 4px 6px 0px 6px;color: rgb(44, 54, 48);}
+
+.choose_doctor_gray_bac{overflow: auto;
+overflow-y: scroll;
+position: fixed;
+top: 0;
+right: 0;
+bottom: 0;
+left: 0;
+z-index: 1050;
+-webkit-overflow-scrolling: touch;
+outline: 0;}
+.choose_doctor_fade{opacity: 0;
+-webkit-transition: opacity 0.15s linear;
+-o-transition: opacity 0.15s linear;
+transition: opacity 0.15s linear;}
+.choose_doctor_fade.choose_doctor_in{opacity: 1;}

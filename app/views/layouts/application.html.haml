@@ -8,7 +8,10 @@
   %body
     = render 'shared/header'
     = render 'shared/show_error'
-    .body_main_content
-      = render 'shared/nav'
-      .mian_content
-        = yield
+    - if current_user.class.to_s == "Doctor"
+      .body_main_content
+        = render 'shared/nav'
+        .mian_content
+          = yield
+    - else
+      = yield
