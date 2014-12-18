@@ -2,11 +2,11 @@
   .header_title
     %ul
       %li
-        %a{:href => root_path,:style => "font-size: 17px;"} Community Health
+        %a{:href => root_path,:style => "font-size: 17px;"} 社区健康管理平台
   .header_user
     %ul
-      %li= "柴凯龙"
+      %li= current_user.name
       %li
-        = link_to("#",method: "delete",data:{ confirm: '确认退出吗?'})do
+        = link_to(session_path(current_user),method: "delete",data:{ confirm: '确认退出吗?'})do
           %span.glyphicon.glyphicon-log-out
   .clr

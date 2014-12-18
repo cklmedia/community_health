@@ -16,7 +16,7 @@
           #myTabContent.tab-content
             #member.tab-pane.fade.active.in
               .Tab_content_form_box
-                = form_for :session, :url => sessions_path do |f|
+                = form_for(Member.new) do |f|
                   .form-group
                     = f.text_field :name,:class=>'form-control',:placeholder=>'姓名'
                   .form-group
@@ -24,9 +24,9 @@
                   .form-group
                     = f.text_field :birthday,:class=>'form-control',:placeholder=>'出生年月(例：1993-01-24)'
                   .form-group
-                    = f.text_field :password,:class=>'form-control',:placeholder=>'密码'
+                    = f.password_field :password,:class=>'form-control',:placeholder=>'密码'
                   .form-group
-                    = f.text_field :password_confirmation,:class=>'form-control',:placeholder=>'密码确认'
+                    = f.password_field :password_confirmation,:class=>'form-control',:placeholder=>'密码确认'
                   .form-group
                     .row
                       .col-md-4
@@ -45,20 +45,20 @@
                   = f.submit "注册",:class=>'btn btn-success form_button'
             #doctor.tab-pane.fade
               .Tab_content_form_box
-                = form_for :session, :url => sessions_path do |f|
+                = form_for(Doctor.new) do |f|
                   .form-group
                     = f.text_field :name,:class=>'form-control',:placeholder=>'姓名'
                   .form-group
                     = f.text_field :tel,:class=>'form-control',:placeholder=>'联系电话'
                   .form-group
-                    = f.text_field :password,:class=>'form-control',:placeholder=>'密码'
+                    = f.password_field :password,:class=>'form-control',:placeholder=>'密码'
                   .form-group
-                    = f.text_field :password_confirmation,:class=>'form-control',:placeholder=>'密码确认'
+                    = f.password_field :password_confirmation,:class=>'form-control',:placeholder=>'密码确认'
                   .form-group
                     = f.file_field :avatar,:class=>'form-control',:placeholder=>'头像'
                   .form-group
                     .switch.switch-large.has-switch{:style => "width:100%","data-off" => "danger","data-on" => "primary"}
                       %input.create_member_sex{:checked => "checked", :type => "checkbox",:name => "sex"}
                   .form-group
-                    = f.text_area :health,:class=>'form-control',:placeholder=>'简介，包括自己擅长的专业领域。'
-                  = f.submit "注册",:class=>'btn btn-success form_button'
+                    = f.text_area :introduce,:class=>'form-control',:placeholder=>'简介，包括自己擅长的专业领域。'
+                    = f.submit "注册",:class=>'btn btn-success form_button'

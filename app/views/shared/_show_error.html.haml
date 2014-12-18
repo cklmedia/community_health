@@ -1,5 +1,5 @@
 / 提示信息
 - flash.each do |key, value|
-  .alert.alert-success{:role => "alert"}
+  .alert{:class => "alert-#{key}", :role => "alert"}
     %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} ×
     = value
