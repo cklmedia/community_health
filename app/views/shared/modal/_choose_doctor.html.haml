@@ -4,6 +4,9 @@
       - Doctor.all.each do |d|
         %li
           .image_title
-            %a{:href => "#"}=d.name
-          %a{:href => "#"}
-            %img{:src => "http://thecodeplayer.com/uploads/media/3yiC6Yq.jpg"}
+            .doctor_base
+              =d.name+"(#{d.sex})"+d.tel
+              = link_to "结交", 'javascript:void(0)', :class =>"btn btn-success bundling_doctor #{can_bundling_doctor?(d.id)}", :data => {:doctor_id=>d.id }
+          .doctor_information_box
+            %img{:src=>"#{d.avatar_url}"}
+            %p="简介："+d.introduce

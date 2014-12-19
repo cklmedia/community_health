@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   mount CommunityHealthApi::API => '/'
   resources :doctors
   resources :members
+  match '/members/bundling_doctor/:doctor_id', to: 'members#bundling_doctor', via:'get'
+
 end

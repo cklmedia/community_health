@@ -37,18 +37,11 @@
 #sidenav .current{background: url(/assets/side_nav_next.png) no-repeat;width: 20px;height: 40px;right: 0;}
 #sidenav li a{display: block;padding: 4px 6px 0px 6px;color: rgb(44, 54, 48);}
 
-.choose_doctor_gray_bac{overflow: auto;
-overflow-y: scroll;
-position: fixed;
-top: 0;
-right: 0;
-bottom: 0;
-left: 0;
-z-index: 1050;
--webkit-overflow-scrolling: touch;
-outline: 0;}
-.choose_doctor_fade{opacity: 0;
--webkit-transition: opacity 0.15s linear;
--o-transition: opacity 0.15s linear;
-transition: opacity 0.15s linear;}
-.choose_doctor_fade.choose_doctor_in{opacity: 1;}
+.communicate_doc_member{background: rgba(206, 249, 222, 0.4);padding: 15px;height: 500px;margin-top: -60px;}
+.communicate_doc_member textarea{height: 76px;}
+.communicate_doc_inf{padding-bottom: 5px;border-bottom: 1px solid rgb(130, 122, 119);height: 45px;}
+.communicate_doc_inf img{width: 40px;height: 40px;}
+.communicate_doc_member #communicate_doc_content{height: 339px;overflow-y:scroll;}
+.communicate_doc_member ul li span{font-size: 10px;color: gray;}
+.communicate_doc_member .button{padding: 15px 10px;font-size: 30px;}
+

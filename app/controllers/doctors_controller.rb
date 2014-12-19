@@ -29,7 +29,7 @@ class DoctorsController < ApplicationController
   private
     def doctor_params
       permited=params.require(:doctor).permit(:name,:tel,:password,:password_confirmation,:avatar,:introduce)
-      if params[:doctor][:sex] then permited[:sex]= "男" else  permited[:sex]= "女" end
+      if params[:sex] then permited[:sex]= "男" else  permited[:sex]= "女" end
       permited
     end
 end

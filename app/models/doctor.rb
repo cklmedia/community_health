@@ -4,5 +4,6 @@ class Doctor < ActiveRecord::Base
   # 头像上传
   mount_uploader :avatar, AvatarUploader
   
-  has_many :member
+  has_many :members
+  has_many :doctor_communicate_members
 end

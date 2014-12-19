@@ -91,13 +91,28 @@
 .bac_box#member_box_6
   .member_main_content
     .member_pic
-      %h2 我们之间纽带
+      %h2 我们之间留言板
       %img{:src => "/assets/session_pic.png"}
       %span.choose_doctor_num{:style => "display:none"}= Doctor.count
     .member_chart_box
       - if current_user.doctor_id.nil?
-        %a#choose_doctor{:href => "#"}
-          %img{:src => "/assets/session_pic.png"}
+        %img#choose_doctor{:src => "/assets/session_pic.png",:style => "cursor: pointer;"}
+      -else
+        .communicate_doc_member
+          .communicate_doc_inf
+            - doctor = current_user.doctor
+            %img{src:"#{doctor.avatar_url}"}
+            %span="姓名：#{doctor.name}(#{doctor.sex})——联系电话：#{doctor.tel}"
+          #communicate_doc_content
+            %ul
+              - DoctorCommunicateMember.get_two_communicate(doctor.id,current_user.id).each do |c|
+                %li
+                  = c.content
+                  %span="#{c.created_at.strftime("%Y-%m-%d %H:%M:%S")}"
+          .input-group
+            %textarea.form-control{:type => "textarea",:style=>"resize:none"}
+            .span.input-group-btn
+              .button.btn.btn-success.communicate_send_btn{:type=>"button"}="发送"
     .clr
 .bac_box#member_box_7
 = render 'shared/modal/choose_doctor'

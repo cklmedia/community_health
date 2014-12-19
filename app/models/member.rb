@@ -5,4 +5,5 @@ class Member < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
   
   belongs_to :doctor
+  has_many :doctor_communicate_members
 end

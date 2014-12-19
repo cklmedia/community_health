@@ -31,7 +31,9 @@ class ApplicationController < ActionController::Base
     end
   end
   def authenticate
-    return if ["members","doctors"].include?(params["controller"])
+    if ["members","doctors"].include?(params["controller"])
+      return ["create"].include?(params["action"])
+    end
     return if params[:controller] == "sessions"
     unless logined?
      redirect_to new_session_path

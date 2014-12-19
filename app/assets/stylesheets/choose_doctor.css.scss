@@ -26,6 +26,7 @@ default width = 800/5 = 160px;
 */
 
 .accordian li {
+	background: #DBEFEB;
 	position: relative;
 	display: block;
 	width: 160px;
@@ -54,6 +55,14 @@ default width = 800/5 = 160px;
 
 .accordian li img {
 	display: block;
+	float: left;
+	width: 100px;
+	height: 150px;
+	margin: 0 10px 10px 0;
+}
+.accordian li p::first-letter{
+  font-size: 40px;
+  font-weight: verdana;
 }
 
 /*Image title styles*/
@@ -64,10 +73,15 @@ default width = 800/5 = 160px;
 width: 640px;	
 
 }
-.image_title a {
+.image_title .doctor_base {
 	display: block;
 	color: #fff;
 	text-decoration: none;
-	padding: 20px;
+	padding: 15px;
 	font-size: 16px;
 }
+.image_title .doctor_base a{
+float: right;
+margin-top: -5px;
+}
+.doctor_information_box{cursor: pointer;width: 640px;height: 320px;padding: 20px;}

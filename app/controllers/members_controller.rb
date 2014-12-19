@@ -30,10 +30,18 @@ class MembersController < ApplicationController
     end
   end
 
+  def bundling_doctor
+    if current_user.update_attribute(:doctor_id, params[:doctor_id])
+      render :json => {:result=>true}.to_json
+    else
+      render :json => {:result=>false}.to_json
+    end
+  end
+
   private
     def member_params
       permited=params.require(:member).permit(:name,:birthday,:health,:password,:password_confirmation,:avatar,:sex,:building,:unit,:house,:tel)
-      if params[:member][:sex] then permited[:sex]= "男" else  permited[:sex]= "女" end
+      if params[:sex] then permited[:sex]= "男" else  permited[:sex]= "女" end
       permited
     end
 end
