@@ -11,10 +11,11 @@
 .Tab_content_form_box{margin-top: 15px;}
 // 主页
 #member_box_2{background: rgb(141, 205, 159);}
-#member_box_3{background: rgb(198, 228, 226);}
-#member_box_4{background: rgb(199, 182, 194);}
-#member_box_5{background: rgb(152, 195, 208);}
+#member_box_3{background: #AED0CE;}
+#member_box_4{background: #678098;}
+#member_box_5{background: #81998D;}
 #member_box_6{background: rgb(218, 203, 165);}
+#member_box_7{background: #4F4731;}
 .member_main_content{width: 80%;margin: auto;min-width: 960px;overflow: hidden;padding-top: 170px;}
 .member_pic{width: 35%;float: left;margin-right: 5%;height: 300px;}
 .member_pic img{width: 100%;}
@@ -42,6 +43,10 @@
 .communicate_doc_inf{padding-bottom: 5px;border-bottom: 1px solid rgb(130, 122, 119);height: 45px;}
 .communicate_doc_inf img{width: 40px;height: 40px;}
 .communicate_doc_member #communicate_doc_content{height: 339px;overflow-y:scroll;}
+.communicate_doc_member ul li {padding: 2px;}
+.communicate_doc_member ul li i{border: 1px solid rgb(197, 184, 184);padding: 3px;border-radius: 3px;}
 .communicate_doc_member ul li span{font-size: 10px;color: gray;}
-.communicate_doc_member .button{padding: 15px 10px;font-size: 30px;}
+.communicate_doc_member .communicate_send_btn{padding: 15px 10px;font-size: 30px;}
 
+#member_box_7 .member_chart_box .row{color: white;font-size: 25px;}
+#member_box_7 .member_chart_box p:first-letter{font-size: 35px;color: #2fa857;}

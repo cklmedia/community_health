@@ -1,0 +1,4 @@
+$("#communicate_doc_content").html("<%= j render :partial => 'members/communicate_msgs' %>");
+$("#communicate_doc_content")[0].scrollTop = $("#communicate_doc_content")[0].scrollHeight;
+$("#communicate_msg").val("");
+$("#m_get_msg_time").text("#{Time.now}");

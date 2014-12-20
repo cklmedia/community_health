@@ -1,4 +1,4 @@
-%ul#sidenav
+%ul#sidenav{:style => "margin-right: 20px;"}
   %li.indicator.current
     %a{:href => "#member_box_1"}*
   %li.indicator
@@ -101,18 +101,30 @@
         .communicate_doc_member
           .communicate_doc_inf
             - doctor = current_user.doctor
-            %img{src:"#{doctor.avatar_url}"}
+            %img#choose_doctor{src:"#{doctor.avatar_url}"}
             %span="姓名：#{doctor.name}(#{doctor.sex})——联系电话：#{doctor.tel}"
+            %i.reload_window.new_m_msg_show{style:"cursor:pointer;float: right;color: rgb(62, 116, 118);"}="0条新信息"
           #communicate_doc_content
-            %ul
-              - DoctorCommunicateMember.get_two_communicate(doctor.id,current_user.id).each do |c|
-                %li
-                  = c.content
-                  %span="#{c.created_at.strftime("%Y-%m-%d %H:%M:%S")}"
+            = render :partial => "members/communicate_msgs"
           .input-group
-            %textarea.form-control{:type => "textarea",:style=>"resize:none"}
-            .span.input-group-btn
-              .button.btn.btn-success.communicate_send_btn{:type=>"button"}="发送"
+            = form_tag(send_msg_doc_members_path,method:'post',remote: true,:style => "display: table-row;",:id => "send_msg_doc") do
+              %textarea.form-control#communicate_msg{:type => "textarea",:style=>"resize:none",name:"commiunicate_msg"}
+              .span.input-group-btn
+                %button.btn.btn-success.communicate_send_btn{:type=>"submit"}="发送"
     .clr
 .bac_box#member_box_7
+  .member_main_content
+    .member_pic
+      %h2 个人信息
+      - user = current_user
+      %img{:src => "#{user.avatar_url}"}
+    .member_chart_box
+      .row
+        .col-md-6
+          %p="姓名：#{user.name}"
+        .col-ma-6
+          %p="性别：#{user.sex}"
+      .row
+        .col-md-12
+          %p="健康状况：#{user.health}"
 = render 'shared/modal/choose_doctor'

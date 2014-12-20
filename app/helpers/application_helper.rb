@@ -9,4 +9,7 @@ module ApplicationHelper
     url = root_path if class_name == "Doctor"
     url
   end
+  def member_sending_float(class_name)
+    res = "msg_right" if class_name == "Member"
+  end
 end

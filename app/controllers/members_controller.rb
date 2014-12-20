@@ -38,6 +38,32 @@ class MembersController < ApplicationController
     end
   end
 
+  def send_msg_doc
+    member = current_user
+    msg = DoctorCommunicateMember.new(doctor_id:member.doctor_id,msg:params[:commiunicate_msg],member_id:member.id,sending:member.class.to_s)
+    respond_to do |format|
+      if msg.save
+        format.html { redirect_to :back }
+        format.js {render "members/update/communicate"}
+      else
+        format.html { redirect_to :back }
+        format.js {render "members/update/communicate"}
+      end
+    end
+  end
+
+  def get_new_msg_num
+    time = params[:time]
+    # puts "----------#{time}----#{Time.now}--------"
+    member = current_user
+    num = DoctorCommunicateMember.get_two_communicate(member.doctor_id,member.id).get_m_new_msg(Time.parse(time)).count
+    render :json => {:number=>num}.to_json
+  end
+
+  def show
+
+  end
+
   private
     def member_params
       permited=params.require(:member).permit(:name,:birthday,:health,:password,:password_confirmation,:avatar,:sex,:building,:unit,:house,:tel)

@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(version: 20141219072655) do
   create_table "doctor_communicate_members", force: true do |t|
     t.integer  "doctor_id"
     t.integer  "member_id"
-    t.text     "content"
-    t.string   "send"
+    t.text     "msg"
+    t.string   "sending"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

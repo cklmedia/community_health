@@ -7,3 +7,5 @@ $(document).ready ->
 
   $(".create_user_link").click ->
     $("#create_user_modal").modal show: true
+  $(".reload_window").click ->
+  	window.location.reload()

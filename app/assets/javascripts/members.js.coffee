@@ -31,3 +31,11 @@ $(document).ready ->
 
   # 使聊天窗口滚动条出现在最后端
   $("#communicate_doc_content")[0].scrollTop = $("#communicate_doc_content")[0].scrollHeight if $("#communicate_doc_content")[0]
+  # 获取与社区医生的信息条数
+  if $("#m_get_msg_time").text()
+    get_new_msg_num = ->
+      time = $("#m_get_msg_time").text()
+      $.get "/members/get_new_msg_num/" + time, (data) ->
+        # alert data.number
+        $(".new_m_msg_show").text data.number+"条新信息"
+    setInterval get_new_msg_num, 3000
