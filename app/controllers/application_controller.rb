@@ -32,7 +32,7 @@ class ApplicationController < ActionController::Base
   end
   def authenticate
     if ["members","doctors"].include?(params["controller"])
-      return ["create"].include?(params["action"])
+      return if params["action"] == "create"
     end
     return if params[:controller] == "sessions"
     unless logined?

@@ -56,7 +56,7 @@ class MembersController < ApplicationController
     time = params[:time]
     # puts "----------#{time}----#{Time.now}--------"
     member = current_user
-    num = DoctorCommunicateMember.get_two_communicate(member.doctor_id,member.id).get_m_new_msg(Time.parse(time)).count
+    num = DoctorCommunicateMember.get_two_communicate(member.doctor_id,member.id).get_m_new_msg(Time.parse(time)).get_who_send("Member").count
     render :json => {:number=>num}.to_json
   end
 

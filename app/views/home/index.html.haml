@@ -1,4 +1,19 @@
 .bac_box.home_bac_1
 .bac_box.home_bac_2
-.bac_box.home_bac_3
-.bac_box.home_bac_4
+  .member_main_content
+    .member_pic
+      %h2 个人信息
+      - user = current_user
+      %img{:src => "#{user.avatar_url}"}
+    .member_chart_box
+      .row
+        .col-md-6
+          %p="姓名：#{user.name}"
+        .col-md-6
+          %p="联系电话：#{user.tel}"
+      .row
+        .col-md-6
+          %p="性别：#{user.sex}"
+      .row
+        .col-md-12
+          %p="个人简介：#{user.introduce}"

@@ -42,11 +42,12 @@
 .communicate_doc_member textarea{height: 76px;}
 .communicate_doc_inf{padding-bottom: 5px;border-bottom: 1px solid rgb(130, 122, 119);height: 45px;}
 .communicate_doc_inf img{width: 40px;height: 40px;}
-.communicate_doc_member #communicate_doc_content{height: 339px;overflow-y:scroll;}
+.communicate_doc_member #communicate_doc_content{height: 70%;overflow-y:scroll;}
 .communicate_doc_member ul li {padding: 2px;}
 .communicate_doc_member ul li i{border: 1px solid rgb(197, 184, 184);padding: 3px;border-radius: 3px;}
 .communicate_doc_member ul li span{font-size: 10px;color: gray;}
+.communicate_doc_member .input-group{padding-top: 15px;border-top: 1px solid rgb(130, 122, 119)}
 .communicate_doc_member .communicate_send_btn{padding: 15px 10px;font-size: 30px;}
 
-#member_box_7 .member_chart_box .row{color: white;font-size: 25px;}
-#member_box_7 .member_chart_box p:first-letter{font-size: 35px;color: #2fa857;}
+.member_chart_box .row{color: white;font-size: 20px;}
+.member_chart_box .row p:first-letter{font-size: 30px;color: #2fa857;}

@@ -98,7 +98,7 @@
       - if current_user.doctor_id.nil?
         %img#choose_doctor{:src => "/assets/session_pic.png",:style => "cursor: pointer;"}
       -else
-        .communicate_doc_member
+        .communicate_doc_member{:style=>"margin-top: -130px;"}
           .communicate_doc_inf
             - doctor = current_user.doctor
             %img#choose_doctor{src:"#{doctor.avatar_url}"}
@@ -122,8 +122,13 @@
       .row
         .col-md-6
           %p="姓名：#{user.name}"
-        .col-ma-6
+        .col-md-6
+          %p="联系电话：#{user.tel}"
+      .row
+        .col-md-6
           %p="性别：#{user.sex}"
+        .col-md-6
+          %p="家庭住址：#{user.building}幢#{user.unit}单元#{user.house}室"
       .row
         .col-md-12
           %p="健康状况：#{user.health}"
