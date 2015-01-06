@@ -19,14 +19,8 @@
       %h2 血压、心率
       %img{:src => "/assets/session_pic.png"}
     .member_chart_box
-      .chart_arrow
-        .chart_left_arrow
-          %img{:src => "/assets/green_left_arrow.png"}
-        .chart_chart
-          %img{:src => "/assets/fuck.png"}
-        .chart_right_arrow
-          %img{:src => "/assets/green_right_arrow.png"}
-        .clr
+      .chart_arrow#blood_pressure_chart_box
+        = render :partial => "members/chart/blood_pressure",:locals => {:blood_pressure_chart => @blood_pressure_chart,:next_month => @next_month,:previous_month => @previous_month,:member_id => @member.id}
     .clr
 .bac_box#member_box_2
   .member_main_content
@@ -34,14 +28,8 @@
       %h2 血糖
       %img{:src => "/assets/session_pic.png"}
     .member_chart_box
-      .chart_arrow
-        .chart_left_arrow
-          %img{:src => "/assets/white_left_arrow.png"}
-        .chart_chart
-          %img{:src => "/assets/fuck.png"}
-        .chart_right_arrow
-          %img{:src => "/assets/white_right_arrow.png"}
-        .clr
+      .chart_arrow#blood_sugar_chart_box
+        = render :partial => "members/chart/blood_sugar",:locals => {:blood_sugar_chart => @blood_sugar_chart,:next_month => @next_month,:previous_month => @previous_month,:member_id => @member.id}
     .clr
 .bac_box#member_box_3
   .member_main_content
@@ -49,14 +37,8 @@
       %h2 尿酸
       %img{:src => "/assets/session_pic.png"}
     .member_chart_box
-      .chart_arrow
-        .chart_left_arrow
-          %img{:src => "/assets/green_left_arrow.png"}
-        .chart_chart
-          %img{:src => "/assets/fuck.png"}
-        .chart_right_arrow
-          %img{:src => "/assets/green_right_arrow.png"}
-        .clr
+      .chart_arrow#purine_trione_chart_box
+        = render :partial => "members/chart/purine_trione",:locals => {:purine_trione_chart => @purine_trione_chart,:next_month => @next_month,:previous_month => @previous_month,:member_id => @member.id}
     .clr
 .bac_box#member_box_4
   .member_main_content
@@ -64,14 +46,8 @@
       %h2 体温
       %img{:src => "/assets/session_pic.png"}
     .member_chart_box
-      .chart_arrow
-        .chart_left_arrow
-          %img{:src => "/assets/green_left_arrow.png"}
-        .chart_chart
-          %img{:src => "/assets/fuck.png"}
-        .chart_right_arrow
-          %img{:src => "/assets/green_right_arrow.png"}
-        .clr
+      .chart_arrow#body_temperature_chart_box
+        = render :partial => "members/chart/body_temperature",:locals => {:body_temperature_chart => @body_temperature_chart,:next_month => @next_month,:previous_month => @previous_month,:member_id => @member.id}
     .clr
 .bac_box#member_box_5
   .member_main_content
@@ -79,14 +55,8 @@
       %h2 胆固醇
       %img{:src => "/assets/session_pic.png"}
     .member_chart_box
-      .chart_arrow
-        .chart_left_arrow
-          %img{:src => "/assets/green_left_arrow.png"}
-        .chart_chart
-          %img{:src => "/assets/fuck.png"}
-        .chart_right_arrow
-          %img{:src => "/assets/green_right_arrow.png"}
-        .clr
+      .chart_arrow#cholesterin_chart_box
+        = render :partial => "members/chart/cholesterin",:locals => {:cholesterin_chart => @cholesterin_chart,:next_month => @next_month,:previous_month => @previous_month,:member_id => @member.id}
     .clr
 .bac_box#member_box_6
   .member_main_content

@@ -11,7 +11,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141219072655) do
+ActiveRecord::Schema.define(version: 20150106083053) do
+
+  create_table "blood_pressures", force: true do |t|
+    t.integer  "member_id"
+    t.integer  "diastolic"
+    t.integer  "systolic"
+    t.integer  "pulse"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "blood_sugars", force: true do |t|
+    t.integer  "test_type"
+    t.float    "result"
+    t.integer  "member_id"
+    t.datetime "measure_time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "body_temperatures", force: true do |t|
+    t.float    "result"
+    t.integer  "member_id"
+    t.datetime "measure_time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "cholesterins", force: true do |t|
+    t.integer  "test_type"
+    t.float    "result"
+    t.integer  "member_id"
+    t.datetime "measure_time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "doctor_communicate_members", force: true do |t|
     t.integer  "doctor_id"
@@ -45,6 +80,15 @@ ActiveRecord::Schema.define(version: 20141219072655) do
     t.string   "building"
     t.string   "unit"
     t.string   "house"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "purine_triones", force: true do |t|
+    t.integer  "test_type"
+    t.float    "result"
+    t.integer  "member_id"
+    t.datetime "measure_time"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

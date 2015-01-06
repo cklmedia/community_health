@@ -1,0 +1,9 @@
+.chart_left_arrow
+  = link_to("/health/adjust_month_chart/#{member_id}&blood_sugars?act=#{previous_month}",remote: true) do
+    %img{:src => "/assets/white_left_arrow.png"}
+.chart_chart
+  = high_chart("blood_sugar_chart", blood_sugar_chart)
+.chart_right_arrow
+  = link_to("/health/adjust_month_chart/#{member_id}&blood_sugars?act=#{next_month}",remote: true) do
+    %img{:src => "/assets/white_right_arrow.png"}
+.clr

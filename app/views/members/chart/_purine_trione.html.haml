@@ -1,0 +1,9 @@
+.chart_left_arrow
+  = link_to("/health/adjust_month_chart/#{member_id}&purine_trione?act=#{previous_month}",remote: true) do
+    %img{:src => "/assets/green_left_arrow.png"}
+.chart_chart
+  = high_chart("purine_trione_chart", purine_trione_chart)
+.chart_right_arrow
+  = link_to("/health/adjust_month_chart/#{member_id}&purine_trione?act=#{next_month}",remote: true) do
+    %img{:src => "/assets/green_right_arrow.png"}
+.clr

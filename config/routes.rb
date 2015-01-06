@@ -8,5 +8,5 @@ Rails.application.routes.draw do
   end
   match '/members/bundling_doctor/:doctor_id', to: 'members#bundling_doctor', via:'get'
   match '/members/get_new_msg_num/:time', to: 'members#get_new_msg_num', via:'get'
-
+  match '/health/adjust_month_chart/:member_id&:tyle',to: 'members#adjust_month_chart',via: 'get'
 end

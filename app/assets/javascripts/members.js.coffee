@@ -38,4 +38,4 @@ $(document).ready ->
       $.get "/members/get_new_msg_num/" + time, (data) ->
         # alert data.number
         $(".new_m_msg_show").text data.number+"条新信息"
-    setInterval get_new_msg_num, 3000
+    # setInterval get_new_msg_num, 3000

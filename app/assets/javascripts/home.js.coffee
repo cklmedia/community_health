@@ -18,6 +18,7 @@ $(document).ready ->
 
   # 设置每个模块的高度自适应浏览器高度
   h = $(window).height()
+  h = 560 if h < 560
   $(".bac_box").css "height", h + "px"
   # 获取页面一共有多少个模块
   bac_box_num = $(".bac_box").size()

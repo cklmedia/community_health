@@ -26,6 +26,9 @@ gem 'grape-entity'
 gem 'carrierwave'
 gem 'mini_magick'
 
+#full highcharts
+gem 'lazy_high_charts'
+
 gem 'jbuilder', '~> 1.2'
 
 group :doc do
