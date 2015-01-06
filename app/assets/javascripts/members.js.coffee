@@ -23,7 +23,7 @@ $(document).ready ->
   $(".bundling_doctor").click ->
     doctor_id = $(this).attr("data-doctor-id")
     $.get "/members/bundling_doctor/" + doctor_id, (data) ->
-      if data.result
+      if data.result2
         alert "结交成功，赶紧去和你的新社区医生交流吧！"
         window.location.reload()
       else
