@@ -1,11 +1,9 @@
 namespace :health do
   def create_ihealth_category
-    #ihealth_category = YAML.load_file("#{Rails.root}/db/category.yml") || {}
-    puts "************create health phyexam template start**************\n"
-
+    puts "************create health phyexam data**************\n"
     ihealth_category = ActiveSupport::JSON.decode(File.read('db/seeds/category.json'))
-
     categories = ihealth_category["categories"]
+    Category.delete_all
     categories.each do |category|
       category_tmp = Category.create(name: category["name"])
       next unless category["items"]
@@ -22,12 +20,13 @@ namespace :health do
   end
 
   def seed_tpl_data
+    puts "************create health phyexam template start**************\n"
     all_tpl = PhyExamTpl.create(name:"全项目体检模版")
     all_category = Category.all
     all_category.each do |category|
       category.category_items.each do |item|
         rs = PhyExamStandResult.create(result_type_id: 1,result_text: "正常")
-        all_tpl.phy_exam_tpl_items.create(category_item:item,exam_stand_result:rs)
+        all_tpl.phy_exam_tpl_items.create(category_item:item,phy_exam_stand_result:rs)
       end
     end
   end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150106083053) do
+ActiveRecord::Schema.define(version: 20150107082211) do
 
   create_table "blood_pressures", force: true do |t|
     t.integer  "member_id"
@@ -35,6 +35,24 @@ ActiveRecord::Schema.define(version: 20150106083053) do
     t.float    "result"
     t.integer  "member_id"
     t.datetime "measure_time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "category_items", force: true do |t|
+    t.string   "name"
+    t.integer  "category_id"
+    t.string   "item_tag"
+    t.integer  "definition_type"
+    t.integer  "result_type"
+    t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -84,11 +102,48 @@ ActiveRecord::Schema.define(version: 20150106083053) do
     t.datetime "updated_at"
   end
 
+  create_table "phy_exam_stand_results", force: true do |t|
+    t.string   "name"
+    t.integer  "phy_exam_tpl_item_id"
+    t.integer  "definition_type"
+    t.string   "unit"
+    t.string   "device"
+    t.integer  "result_type_id"
+    t.integer  "normal_max"
+    t.integer  "normal_min"
+    t.string   "description"
+    t.text     "result_text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "phy_exam_tpl_items", force: true do |t|
+    t.integer  "phy_exam_tpl_id"
+    t.integer  "category_item_id"
+    t.string   "alias_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "phy_exam_tpls", force: true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "agency"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "purine_triones", force: true do |t|
     t.integer  "test_type"
     t.float    "result"
     t.integer  "member_id"
     t.datetime "measure_time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "result_types", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
