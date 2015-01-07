@@ -49,5 +49,17 @@
 .communicate_doc_member .input-group{padding-top: 15px;border-top: 1px solid rgb(130, 122, 119)}
 .communicate_doc_member .communicate_send_btn{padding: 15px 10px;font-size: 30px;}
 
-.member_chart_box .row{color: white;font-size: 20px;}
-.member_chart_box .row p:first-letter{font-size: 30px;color: #2fa857;}
+.member_chart_box .person_info_box .row{color: white;font-size: 20px;}
+.member_chart_box .person_info_box .row p:first-letter{font-size: 30px;color: #2fa857;}
+.member_chart_box .console_row_box a{color: white;display: block;}
+.member_chart_box .console_row_box a:hover{box-shadow: 0 0 20px rgba(110, 40, 37, 1);position: relative;}
+.member_chart_box .console_row_box .console_col{width: 33.33333%;float: left;}
+.member_chart_box .console_member_box {background-color: rgb(141, 205, 159);padding: 5px;}
+.member_chart_box .console_phy_box {background-color: #AED0CE;padding: 5px;}
+.member_chart_box .console_house_box {background-color: #678098;padding: 5px;}
+.member_chart_box .console_tishineng_box {background-color: #81998D;padding: 5px;}
+.member_chart_box .console_zhongyi_box {background-color: rgb(218, 203, 165);padding: 5px;}
+.member_chart_box .console_msg_box {background-color: #4F4731;padding: 5px;}
+.member_chart_box .console_row_box .name{font-size: 20px;}
+.member_chart_box .console_row_box .type{font-size: 20px;text-align: right;}
+.member_chart_box .console_row_box .num{font-size: 40px;text-align: center;}

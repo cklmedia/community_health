@@ -1,4 +1,49 @@
 .bac_box.home_bac_1
+  .member_main_content
+    .member_pic
+      %h2 控制台
+      %img{:src => "/assets/session_pic.png"}
+    .member_chart_box{:style =>"padding: 4px;"}
+      .console_row_box
+        .console_col
+          %a{:href => list_doctor_members_path}
+            .console_member_box
+              %p.name="你一共有："
+              %p.num=@member_num
+              %p.type="位居民"
+        .console_col
+          %a{:href => "#"}
+            .console_phy_box
+              %p.name="他们有："
+              %p.num=@phy_num
+              %p.type="份体检档案"
+        .console_col
+          %a{:href => "#"}
+            .console_house_box
+              %p.name="他们有："
+              %p.num=@house_num
+              %p.type="条居家数据"
+        .clr
+      .console_row_box
+        .console_col
+          %a{:href => "#"}
+            .console_tishineng_box
+              %p.name="他们有："
+              %p.num=@tishineng
+              %p.type="条提示能数据"
+        .console_col
+          %a{:href => "#"}
+            .console_zhongyi_box
+              %p.name="他们有："
+              %p.num=@zhonngyi
+              %p.type="条中医体质数据"
+        .console_col
+          %a{:href => "#"}
+            .console_msg_box
+              %p.name="他们有："
+              %p.num=@msg_num
+              %p.type="条留言"
+        .clr
 .bac_box.home_bac_2
   .member_main_content
     .member_pic
@@ -6,14 +51,15 @@
       - user = current_user
       %img{:src => "#{user.avatar_url}"}
     .member_chart_box
-      .row
-        .col-md-6
-          %p="姓名：#{user.name}"
-        .col-md-6
-          %p="联系电话：#{user.tel}"
-      .row
-        .col-md-6
-          %p="性别：#{user.sex}"
-      .row
-        .col-md-12
-          %p="个人简介：#{user.introduce}"
+      .person_info_box
+        .row
+          .col-md-6
+            %p="姓名：#{user.name}"
+          .col-md-6
+            %p="联系电话：#{user.tel}"
+        .row
+          .col-md-6
+            %p="性别：#{user.sex}"
+        .row
+          .col-md-12
+            %p="个人简介：#{user.introduce}"

@@ -26,6 +26,10 @@ class DoctorsController < ApplicationController
     end
   end
 
+  def list_members
+    @members = current_user.members.paginate(:page => params[:page])
+  end
+
   private
     def doctor_params
       permited=params.require(:doctor).permit(:name,:tel,:password,:password_confirmation,:avatar,:introduce)

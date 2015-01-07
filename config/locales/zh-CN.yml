@@ -1,0 +1,16 @@
+zh-CN:
+  will_paginate:
+    previous_label: "«"
+    next_label: "»"
+    page_entries_info:
+      single_page:
+        zero:  "当前无数据"
+        one:   "共有 1 条数据"
+        other: "共有 %{count} 条数据"
+      single_page_html:
+        zero:  "当前无数据"
+        one:   "共有 <b>1</b> 条数据"
+        other: "共有 <b>&nbsp;%{count}</b> 条数据"
+
+      multi_page: "共有 %{count} 条数据， 当前从 %{from} 到 %{to} 条数据"
+      multi_page_html: "共有  <b>%{count}</b> 条数据，当前从 <b>第&nbsp;%{from}&nbsp;条&nbsp;到第&nbsp;%{to}</b> 条数据"

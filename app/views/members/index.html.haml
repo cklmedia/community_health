@@ -89,17 +89,18 @@
       - user = current_user
       %img{:src => "#{user.avatar_url}"}
     .member_chart_box
-      .row
-        .col-md-6
-          %p="姓名：#{user.name}"
-        .col-md-6
-          %p="联系电话：#{user.tel}"
-      .row
-        .col-md-6
-          %p="性别：#{user.sex}"
-        .col-md-6
-          %p="家庭住址：#{user.building}幢#{user.unit}单元#{user.house}室"
-      .row
-        .col-md-12
-          %p="健康状况：#{user.health}"
+      .person_info_box
+        .row
+          .col-md-6
+            %p="姓名：#{user.name}"
+          .col-md-6
+            %p="联系电话：#{user.tel}"
+        .row
+          .col-md-6
+            %p="性别：#{user.sex}"
+          .col-md-6
+            %p="家庭住址：#{user.building}幢#{user.unit}单元#{user.house}室"
+        .row
+          .col-md-12
+            %p="健康状况：#{user.health}"
 = render 'shared/modal/choose_doctor'

@@ -1,0 +1,33 @@
+.member_main_content
+  .member_pic
+    %h2 居民列表
+    %img{:src => "/assets/session_pic.png"}
+  .member_chart_box
+    %table.table.table-striped
+      %thead
+        %tr
+          %th="姓名"
+          %th="体检档案"
+          %th="居家检测"
+          %th="提示能"
+          %th="中医体质"
+          %th="留言"
+      %tbody
+        - @members.each do |m|
+          - house_num = 0
+          - house_num += m.blood_pressures.count
+          - house_num += m.blood_sugars.count
+          - house_num += m.purine_triones.count
+          - house_num += m.cholesterins.count
+          - house_num += m.body_temperatures.count
+          %tr
+            %td=m.name
+            %td="2"
+            %td=house_num
+            %td="0"
+            %td="0"
+            %td=m.doctor_communicate_members.count
+    .show_variable_paginate
+      %span.page_entries_info= page_entries_info @members
+      = will_paginate @members, renderer: BootstrapPagination::Rails if @members
+
