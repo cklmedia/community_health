@@ -1,0 +1,101 @@
+%ul#sidenav{:style => "margin-right: 20px;left: 20px;"}
+  %li.indicator.current
+    %a{:href => "#member_box_1"}*
+  %li.indicator
+    %a{:href => "#member_box_2"}*
+  %li.indicator
+    %a{:href => "#member_box_3"}*
+  %li.indicator
+    %a{:href => "#member_box_4"}*
+  %li.indicator
+    %a{:href => "#member_box_5"}*
+  %li.indicator
+    %a{:href => "#member_box_6"}*
+  %li.indicator
+    %a{:href => "#member_box_7"}*
+.bac_box#member_box_1
+  .member_main_content
+    .member_pic
+      %h2 血压、心率
+      %img{:src => "/assets/session_pic.png"}
+    .member_chart_box
+      .chart_arrow#blood_pressure_chart_box
+        = render :partial => "members/chart/blood_pressure",:locals => {:blood_pressure_chart => @blood_pressure_chart,:next_month => @next_month,:previous_month => @previous_month,:member_id => @member.id}
+    .clr
+.bac_box#member_box_2
+  .member_main_content
+    .member_pic
+      %h2 血糖
+      %img{:src => "/assets/session_pic.png"}
+    .member_chart_box
+      .chart_arrow#blood_sugar_chart_box
+        = render :partial => "members/chart/blood_sugar",:locals => {:blood_sugar_chart => @blood_sugar_chart,:next_month => @next_month,:previous_month => @previous_month,:member_id => @member.id}
+    .clr
+.bac_box#member_box_3
+  .member_main_content
+    .member_pic
+      %h2 尿酸
+      %img{:src => "/assets/session_pic.png"}
+    .member_chart_box
+      .chart_arrow#purine_trione_chart_box
+        = render :partial => "members/chart/purine_trione",:locals => {:purine_trione_chart => @purine_trione_chart,:next_month => @next_month,:previous_month => @previous_month,:member_id => @member.id}
+    .clr
+.bac_box#member_box_4
+  .member_main_content
+    .member_pic
+      %h2 体温
+      %img{:src => "/assets/session_pic.png"}
+    .member_chart_box
+      .chart_arrow#body_temperature_chart_box
+        = render :partial => "members/chart/body_temperature",:locals => {:body_temperature_chart => @body_temperature_chart,:next_month => @next_month,:previous_month => @previous_month,:member_id => @member.id}
+    .clr
+.bac_box#member_box_5
+  .member_main_content
+    .member_pic
+      %h2 胆固醇
+      %img{:src => "/assets/session_pic.png"}
+    .member_chart_box
+      .chart_arrow#cholesterin_chart_box
+        = render :partial => "members/chart/cholesterin",:locals => {:cholesterin_chart => @cholesterin_chart,:next_month => @next_month,:previous_month => @previous_month,:member_id => @member.id}
+    .clr
+.bac_box#member_box_6
+  .member_main_content
+    .member_pic
+      %h2 我们之间留言板
+      %img{:src => "/assets/session_pic.png"}
+      %span.choose_doctor_num{:style => "display:none"}= Doctor.count
+    .member_chart_box
+      %span#member_show_id{:style => "display:none"}= @member.id
+      .communicate_doc_member{:style=>"margin-top: -130px;"}
+        .communicate_doc_inf
+          %img#choose_doctor{src:"#{@member.avatar_url}"}
+          %span="姓名：#{@member.name}(#{@member.sex})——联系电话：#{@member.tel}"
+          %i.reload_window.new_m_msg_show{style:"cursor:pointer;float: right;color: rgb(62, 116, 118);"}="0条新信息"
+        #communicate_doc_content
+          = render :partial => "members/communicate_msgs",:locals =>{:doctor => current_user,:member => @member}
+        .input-group
+          = form_tag(send_msg_doc_members_path,method:'post',remote: true,:style => "display: table-row;",:id => "send_msg_doc") do
+            %textarea.form-control#communicate_msg{:type => "textarea",:style=>"resize:none",name:"commiunicate_msg"}
+            .span.input-group-btn
+              %button.btn.btn-success.communicate_send_btn{:type=>"submit"}="发送"
+    .clr
+.bac_box#member_box_7
+  .member_main_content
+    .member_pic
+      %h2 个人信息
+      %img{:src => "#{@member.avatar_url}"}
+    .member_chart_box
+      .person_info_box
+        .row
+          .col-md-6
+            %p="姓名：#{@member.name}"
+          .col-md-6
+            %p="联系电话：#{@member.tel}"
+        .row
+          .col-md-6
+            %p="性别：#{@member.sex}"
+          .col-md-6
+            %p="家庭住址：#{@member.building}幢#{@member.unit}单元#{@member.house}室"
+        .row
+          .col-md-12
+            %p="健康状况：#{@member.health}"

@@ -4,3 +4,6 @@ Member.create(name:"M柴凯龙",tel:"15868808520",password:"123456",password_con
   DoctorCommunicateMember.create(doctor_id:1,member_id:1,msg:"在吗#{i}",sending:"Member")
   DoctorCommunicateMember.create(doctor_id:1,member_id:1,msg:"在#{i}",sending:"Doctor")
 end
+ResultType.create(name:"字符")
+ResultType.create(name:"数值")
+ResultType.create(name:"文本")

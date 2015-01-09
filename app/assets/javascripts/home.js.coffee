@@ -1,8 +1,12 @@
 $(document).ready ->
   # 初始化隐藏二级菜单
   $(".second_nav").hide()
-  $(".title").each ->
-    $(this).siblings("ul").css "top",$(this).offset().top+"px"
+  # $(".title").each ->
+  #   console.log $(this).offset().top
+  #   $(this).siblings("ul").css "top",$(this).offset().top+"px"
+  $(".second_nav").eq(1).css "top","142.89772033691406px"
+  $(".second_nav").eq(2).css "top","184.34658813476562px"
+  $(".second_nav").eq(0).css "top","101.44886016845703px"
   # 一级菜单点击悬浮显示二级菜单
   $(".left_nav_first_li").hover ->
     $(".title",this).css

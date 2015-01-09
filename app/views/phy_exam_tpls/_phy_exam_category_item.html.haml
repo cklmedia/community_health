@@ -1,0 +1,10 @@
+%tr
+  %td= check_box_tag "item_ids[]", phy_exam_tpl_item.id
+  %td= link_to phy_exam_tpl_item.category_item.name,"#"
+  %td= phy_exam_tpl_item.phy_exam_stand_result.result_type.name if phy_exam_tpl_item.phy_exam_stand_result.result_type
+  %td= phy_exam_tpl_item.phy_exam_stand_result.result_text
+  %td= phy_exam_tpl_item.phy_exam_stand_result.unit
+  %td
+    %ul
+      %li= link_to "编辑",'#', :class => "health_tpl_item_edit", :data => {:toggle => "modal",:phy_exam_tpl_item => phy_exam_tpl_item.id,:category_id => category_id,:category_item_id => phy_exam_tpl_item.category_item_id}
+      %li= link_to '删除', destroy_item_exam_tpls_path(phy_exam_tpl_item), method: :delete,data: { confirm: '你确定删除吗？' }

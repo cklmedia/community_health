@@ -48,7 +48,7 @@
 .communicate_doc_member ul li span{font-size: 10px;color: gray;}
 .communicate_doc_member .input-group{padding-top: 15px;border-top: 1px solid rgb(130, 122, 119)}
 .communicate_doc_member .communicate_send_btn{padding: 15px 10px;font-size: 30px;}
-
+// 社区医生主页面
 .member_chart_box .person_info_box .row{color: white;font-size: 20px;}
 .member_chart_box .person_info_box .row p:first-letter{font-size: 30px;color: #2fa857;}
 .member_chart_box .console_row_box a{color: white;display: block;}
@@ -63,3 +63,23 @@
 .member_chart_box .console_row_box .name{font-size: 20px;}
 .member_chart_box .console_row_box .type{font-size: 20px;text-align: right;}
 .member_chart_box .console_row_box .num{font-size: 40px;text-align: center;}
+.list_add_button {height: 157px;}
+// 体检模版页面
+.member_chart_box .console_row_box .console_col_list{width: 25%;float: left;}
+.console_box_0{background-color: rgb(141, 205, 159);padding: 5px;}
+.console_box_1{background-color: #AED0CE;padding: 5px;}
+.console_box_2{background-color: #678098;padding: 5px;}
+.console_box_3{background-color: #81998D;padding: 5px;}
+.console_box_4{background-color: rgb(218, 203, 165);padding: 5px;}
+.console_box_5{background-color: #4F4731;padding: 5px;}
+.console_box_6{background-color: #CD8BC0;padding: 5px;}
+.console_box_7{background-color: #0C2F15;padding: 5px;}
+.member_chart_box .console_row_box .phy_agency{font-size: 15px;}
+.member_chart_box .console_row_box .phy_date{font-size: 10px;text-align: right;}
+.member_chart_box .console_row_box .phy_name{font-size: 20px;text-align: center;min-height: 80px;max-height: 80px;}
+
+// 用户列表
+.member_chart_box .console_row_box .member_name{font-size: 15px;}
+.member_chart_box .console_row_box .member_name span{font-size: 10px;}
+.member_chart_box .console_row_box .member_info{font-size: 15px;min-height: 105px;max-height: 105px;}
+

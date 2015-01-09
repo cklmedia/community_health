@@ -1,0 +1,30 @@
+#phy_exam_item_modal.modal.fade{"aria-labelledby" => "modal-switch-label", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} ×
+          %span.sr-only Close
+        #modal-switch-label.modal-title{:style => "color:#2fa857;font-size:25px;"} 体检模版项目
+      .modal-body
+        = form_tag(save_items_phy_exam_tpls_path,method:'post',name:"tpl_item_edit_new_form",id:"tpl_item_edit_new_form",remote: true) do
+          #for_edit
+          = hidden_field_tag 'phy_exam_tpl_id', ""
+          .form-group
+            = select_tag 'category_item_id','',id: "select_category_item",:class => "form-control",prompt: '--体检项目--'
+          .form-group
+            = select_tag 'result_type_id', options_for_select(ResultType.all.collect {|p| [ p.name, p.id ]}),:class => 'form-control', prompt: '--结果值类型--'
+          #num_type
+            .form-group
+              = text_field_tag 'unit',nil,class: "form-control",:placeholder=>'检测结果单位'
+            .form-group
+              = text_field_tag 'normal_max',nil,class: "form-control",:placeholder=>'最高值'
+            .form-group
+              = text_field_tag 'normal_min',nil,class: "form-control",:placeholder=>'最低值'
+          .form-group
+            = text_field_tag 'result_text',nil,class: "form-control",:placeholder=>'参考结果'
+          .form-group
+            = text_field_tag 'device',nil,class: "form-control",:placeholder=>'检测设备'
+          .form-group
+            = text_area_tag 'description',nil,class: "form-control ", rows: "3",:placeholder=>'备注'
+          = submit_tag "保存",:class=>'btn btn-success form_button'

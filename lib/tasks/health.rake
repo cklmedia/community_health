@@ -21,7 +21,9 @@ namespace :health do
 
   def seed_tpl_data
     puts "************create health phyexam template start**************\n"
-    all_tpl = PhyExamTpl.create(name:"全项目体检模版")
+    PhyExamTpl.delete_all
+    PhyExamStandResult.delete_all
+    all_tpl = PhyExamTpl.create(name:"全项目体检模版",agency:"阳光体检")
     all_category = Category.all
     all_category.each do |category|
       category.category_items.each do |item|

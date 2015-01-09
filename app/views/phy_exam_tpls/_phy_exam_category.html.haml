@@ -1,0 +1,16 @@
+.phy_exam_category_content
+  %table.table.table-striped
+    %thead
+      %tr
+        %th
+          %button.btn.btn-default.btn-xs{:type=>"submit"}="删除"
+        %th="项目名称"
+        %th="结果类型"
+        %th="参考结果"
+        %th="检测结果单位"
+        %th
+          操作
+          = link_to("#",:class =>"btn btn-success btn-xs health_tpl_item_new", :data => {:toggle => "modal",:phy_exam_tpl_id => phy_exam_tpl.id,:catagory_id => category.id}) do
+            新增
+    %tbody{:id => "tpl_exam_category_#{category.id}"}
+      = render :partial => "phy_exam_category_item", :collection => phy_exam_tpl.phy_exam_tpl_items.group_category(category.id), :as => :phy_exam_tpl_item,:locals =>{:category_id => category.id}

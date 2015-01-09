@@ -76,13 +76,32 @@ class MembersController < ApplicationController
 
   def get_new_msg_num
     time = params[:time]
-    # puts "----------#{time}----#{Time.now}--------"
-    member = current_user
-    num = DoctorCommunicateMember.get_two_communicate(member.doctor_id,member.id).get_m_new_msg(Time.parse(time)).get_who_send("Doctor").count
+    if current_user.class.to_s == "Member"
+      member = current_user
+      key = "Doctor"
+    else
+      member = Member.find(params[:member_id])
+      key = "Member"
+    end
+    num = DoctorCommunicateMember.get_two_communicate(member.doctor_id,member.id).get_m_new_msg(Time.parse(time)).get_who_send(key).count
     render :json => {:number=>num}.to_json
   end
 
   def show
+    @member = Member.find(params[:id])
+    # chart图初始月份
+    @next_month = (Time.new + 1.month).strftime('%Y-%m-%d')[0,7]
+    @previous_month = (Time.new - 1.month).strftime('%Y-%m-%d')[0,7]
+    # 血压图
+    blood_pressure_chart(@member.id,"","")
+    # 血糖值
+    blood_sugar_chart(@member.id,"","")
+    # 尿酸
+    purine_trione_chart(@member.id,"","")
+    # 胆固醇
+    cholesterin_chart(@member.id,"","")
+    # 体温
+    body_temperature_chart(@member.id,"","")
   end
 
   def adjust_month_chart

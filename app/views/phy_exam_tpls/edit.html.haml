@@ -1,0 +1,24 @@
+.edit_phy_exam_tpl
+  = form_for(@phy_exam_tpl) do |f|
+    .row
+      .col-md-4
+        .form-group
+          = f.text_field :name,:class=>'form-control',:placeholder=>'名称'
+      .col-md-4
+        .form-group
+          = f.text_field :agency,:class=>'form-control',:placeholder=>'机构'
+      .col-md-4
+        .row
+          .col-md-6
+            = f.submit "保存",:class=>'btn btn-success form_button'
+          .col-md-6.behind_btn
+            = link_to '删除',@phy_exam_tpl,:class=>'btn btn-danger form_button',method: :delete,data:{confirm:'你确定删除吗？'}
+.left_navitation{:style => "width:15%;height:600px;float:left;"}
+  - Category.all.each do |c|
+    #phy_exam_category_info
+      %h3= c.name
+= form_tag(destroy_multiple_phy_exam_tpls_path,method:'delete',name:"delete_multiple_form") do
+  .right_itemdetails{:style => "width:85%;float:right;"}
+    #page_content
+      = render :partial =>"phy_exam_category", :collection => Category.all,:as=>:category, :locals =>{:phy_exam_tpl => @phy_exam_tpl}
+= render 'phy_exam_tpls/modal/tpl_item'

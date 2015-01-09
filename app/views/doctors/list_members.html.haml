@@ -3,30 +3,65 @@
     %h2 居民列表
     %img{:src => "/assets/session_pic.png"}
   .member_chart_box
-    %table.table.table-striped
-      %thead
-        %tr
-          %th="姓名"
-          %th="体检档案"
-          %th="居家检测"
-          %th="提示能"
-          %th="中医体质"
-          %th="留言"
-      %tbody
-        - @members.each do |m|
-          - house_num = 0
-          - house_num += m.blood_pressures.count
-          - house_num += m.blood_sugars.count
-          - house_num += m.purine_triones.count
-          - house_num += m.cholesterins.count
-          - house_num += m.body_temperatures.count
-          %tr
-            %td=m.name
-            %td="2"
-            %td=house_num
-            %td="0"
-            %td="0"
-            %td=m.doctor_communicate_members.count
+    - count = 0
+    .console_row_box
+      - @members[0..3].each do |p|
+        - house_num = 0
+        - house_num += p.blood_pressures.count
+        - house_num += p.blood_sugars.count
+        - house_num += p.purine_triones.count
+        - house_num += p.cholesterins.count
+        - house_num += p.body_temperatures.count
+        .console_col_list
+          %a{:href => member_path(p)}
+            %div{:class => "console_box_#{count}"}
+              %p.member_name
+                #{p.name}-
+                %span=p.tel
+              %ul.member_info
+                %li="体检档案:#{p.name}"
+                %li="居家检测:#{house_num}"
+                %li="提示能:0;"
+                %li="中医体质:0;"
+                %li="留言:#{p.doctor_communicate_members.count}"
+        - count += 1
+
+      - if  @members.count < 4
+        .console_col_list
+          %a{:href => new_member_path}
+            %div{:class => "console_box_#{count} list_add_button"}
+              %img{:src => "/assets/add.png"}
+      .clr
+
+    - if  @members.count == 4
+      .console_row_box
+        .console_col_list
+          %a{:href => new_member_path}
+            %div{:class => "console_box_#{count} list_add_button"}
+              %img{:src => "/assets/add.png"}
+        .clr
+      
+    - if @members.count > 4
+      .console_row_box
+        - @phy_exam_tpls[4..6].each do |p|
+          .console_col_list
+            %a{:href => member_path(p)}
+              %div{:class => "console_box_#{count}"}
+                %p.member_name
+                  #{p.name}-
+                  %span=p.tel
+                %ul.member_info
+                  %li="体检档案:#{p.name}"
+                  %li="居家检测:#{house_num}"
+                  %li="提示能:0;"
+                  %li="中医体质:0;"
+                  %li="留言:#{p.doctor_communicate_members.count}"
+          - count += 1
+        .console_col_list
+          %a{:href => new_member_path}
+            %div{:class => "console_box_#{count} list_add_button"}
+              %img{:src => "/assets/add.png"}
+        .clr
     .show_variable_paginate
       %span.page_entries_info= page_entries_info @members
       = will_paginate @members, renderer: BootstrapPagination::Rails if @members

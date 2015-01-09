@@ -1,0 +1,16 @@
+$("#tpl_exam_category_<%= @category_id%>").html("<%= j render :partial => 'phy_exam_category_item', :collection => PhyExamTpl.find(@phy_exam_tpl_id).phy_exam_tpl_items.group_category(@category_id).sort, :as => :phy_exam_tpl_item,:locals =>{:category_id => @category_id} %>");
+$('#phy_exam_item_modal').modal('hide');
+/*edit_link*/
+$(".health_tpl_item_edit").off("click");
+$(".health_tpl_item_edit").on("click",function(){
+  category_id = $(this).attr("data-category-id");
+  category_item_id = $(this).attr("data-category-item-id");
+  tpl_item_id = $(this).attr("data-phy-exam-tpl-item");
+  App.phy_exam_tpl_item_edit(category_id,tpl_item_id,category_item_id);
+});
+/* delete_link*/
+$(".delete_item").off("click");
+$(".delete_item").on("click",function(){
+  delete_url = $(this).attr("data-delete-url");
+  App.delete_item(delete_url);
+});

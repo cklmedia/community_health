@@ -1,0 +1,17 @@
+#new_phy_exam_modal.modal.fade{"aria-labelledby" => "modal-switch-label", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} ×
+          %span.sr-only Close
+        #modal-switch-label.modal-title{:style => "color:#2fa857;font-size:25px;"} 体检模版添加
+      .modal-body
+        = form_for(PhyExamTpl.new) do |f|
+          .form-group
+            = select_tag 'father_tpl_id',options_for_select(PhyExamTpl.all.collect {|p| [ p.name, p.id ]}),:class => "form-control", prompt: '--自定义模板--'
+          .form-group
+            = f.text_field :name,:class=>'form-control',:placeholder=>'名称'
+          .form-group
+            = f.text_field :agency,:class=>'form-control',:placeholder=>'机构'
+          = f.submit "添加",:class=>'btn btn-success form_button'
