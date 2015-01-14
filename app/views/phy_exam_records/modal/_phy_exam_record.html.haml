@@ -1,0 +1,30 @@
+#new_phy_exam_record_modal.modal.fade{"aria-labelledby" => "modal-switch-label", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} ×
+          %span.sr-only Close
+        #modal-switch-label.modal-title{:style => "color:#2fa857;font-size:25px;"} 体检档案添加
+      .modal-body
+        = form_for(PhyExamRecord.new) do |f|
+          .form-group
+            = f.select :phy_exam_tpl_id,  PhyExamTpl.all.collect{|p| [ p.name, p.id ]},{prompt: "--体检模版--"},{ :class => 'form-control',:required =>"true"}
+          .form-group
+            .list_member_table{style: "max-height: 278px;overflow: scroll;"}
+              %table.table.table-striped
+                %thead
+                  %tr
+                    %th="选择"
+                    %th="姓名"
+                    %th="手机号"
+                    %th="住址"
+                %tbody
+                  - current_user.members.each do |m|
+                    %tr
+                      %td
+                        = radio_button_tag(:member_id, m.id)
+                      %td=m.name
+                      %td=m.tel
+                      %td="#{m.building}幢#{m.unit}单元#{m.house}室"
+          = f.submit "添加",:class=>'btn btn-success form_button'

@@ -1,0 +1,50 @@
+.member_main_content
+  .member_pic
+    %h2 体检档案列表
+    %img{:src => "/assets/session_pic.png"}
+  .member_chart_box{:style =>"padding: 3px;"}
+    - count = 0
+    .console_row_box
+      - @phy_exam_records[0..3].each do |p|
+        .console_col_list
+          %a{:href => phy_exam_record_path(p)}
+            %div{:class => "console_box_#{count}"}
+              %p.phy_agency=p.phy_exam_tpl.name
+              %p.phy_name=p.member.name
+              %p.phy_date=p.created_at.strftime("%Y-%m-%d")
+        - count += 1
+
+      - if  @phy_exam_records.count < 4
+        .console_col_list
+          %a{:href => "javascript:void(0)",:id => "create_phy_exam_record"}
+            %div{:class => "console_box_#{count} list_add_button"}
+              %img{:src => "/assets/add.png"}
+      .clr
+
+    - if  @phy_exam_records.count == 4
+      .console_row_box
+        .console_col_list
+          %a{:href => "javascript:void(0)",:id => "create_phy_exam_record"}
+            %div{:class => "console_box_#{count} list_add_button"}
+              %img{:src => "/assets/add.png"}
+        .clr
+      
+    - if @phy_exam_records.count > 4
+      .console_row_box
+        - @phy_exam_records[4..6].each do |p|
+          .console_col_list
+            %a{:href => phy_exam_record_path(p)}
+              %div{:class => "console_box_#{count}"}
+                %p.phy_agency=p.phy_exam_tpl.name
+                %p.phy_name=p.member.name
+                %p.phy_date=p.created_at.strftime("%Y-%m-%d")
+          - count += 1
+        .console_col_list
+          %a{:href => "javascript:void(0)",:id => "create_phy_exam_record"}
+            %div{:class => "console_box_#{count} list_add_button"}
+              %img{:src => "/assets/add.png"}
+        .clr
+    .show_variable_paginate
+      %span.page_entries_info= page_entries_info @phy_exam_records
+      = will_paginate @phy_exam_records, renderer: BootstrapPagination::Rails if @phy_exam_records
+= render 'phy_exam_records/modal/phy_exam_record'

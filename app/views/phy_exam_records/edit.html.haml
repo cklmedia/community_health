@@ -1,0 +1,26 @@
+.phy_exam_page_nav
+  .row
+    .col-md-3
+      %p="体检报告名称:#{@phy_exam_record.phy_exam_tpl.name}"
+    .col-md-3
+      = link_to @phy_exam_record.member.name,member_path(@phy_exam_record.member)
+    .col-md-3
+      %p="体检时间:#{@phy_exam_record.created_at.strftime("%Y-%m-%d")}"
+    .col-md-3.behind_btn{style:"padding-bottom: 4px;"}
+      = link_to '删除',@phy_exam_record,:class=>'btn btn-danger form_button',method: :delete,data:{confirm:'你确定删除吗？'}
+.phy_exam_big_box
+  .phy_exam_nav
+    %h2= link_to "报告总结","#sum_phy_tpl"
+    %ul
+      - Category.all.each do |c|
+        - if !(c.get_items(@phy_exam_record.phy_exam_tpl_id).empty?)
+          %li
+            = link_to c.name,"#phy_exam_#{c.id}"
+  .phy_exam_main_content
+    = form_tag(update_record_phy_exam_path,method:'patch') do
+      - Category.all.each do |c|
+        - if !(c.get_items(@phy_exam_record.phy_exam_tpl_id).empty?)
+          = render :partial =>"edit_record_content",:locals =>{:phy_exam_record => @phy_exam_record,:category => c}
+      = hidden_field_tag 'phy_exam_record_id', params[:id]
+      = submit_tag "保存",:class=>'btn btn-success form_button'
+  .clr

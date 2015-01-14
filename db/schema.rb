@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150107082211) do
+ActiveRecord::Schema.define(version: 20150109064748) do
 
   create_table "blood_pressures", force: true do |t|
     t.integer  "member_id"
@@ -98,6 +98,37 @@ ActiveRecord::Schema.define(version: 20150107082211) do
     t.string   "building"
     t.string   "unit"
     t.string   "house"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "phy_exam_record_extras", force: true do |t|
+    t.integer  "phy_exam_record_id"
+    t.integer  "category_id"
+    t.string   "doctor"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "phy_exam_record_items", force: true do |t|
+    t.integer  "phy_exam_record_id"
+    t.integer  "phy_exam_tpl_item_id"
+    t.string   "result"
+    t.integer  "category_id"
+    t.string   "decide"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "phy_exam_records", force: true do |t|
+    t.integer  "phy_exam_tpl_id"
+    t.integer  "member_id"
+    t.date     "phy_exam_date"
+    t.integer  "doctor_id"
+    t.string   "phy_records_file"
+    t.text     "phy_tpl_conclusion"
+    t.text     "phy_tpl_advise"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

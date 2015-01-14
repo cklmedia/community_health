@@ -1,0 +1,27 @@
+.phy_exam_panel{:id => "phy_exam_#{category.id}"}
+  .phy_exam_table_title
+    .blue_line
+    %h3
+      = category.name
+      = hidden_field_tag 'category_ids[]',category.id
+      - record_extra = PhyExamRecordExtra.select_extra(category.id,phy_exam_record.id).first
+  %table
+    %tr
+      %th.phy_exam_table_col1 检测项目
+      %th.phy_exam_table_col2 检测结果
+      %th.phy_exam_table_col2 检测结果判定
+      %th.phy_exam_table_col4 模版参考结果
+      %th.phy_exam_table_col6 结果范围
+      %th.phy_exam_table_col6 结果单位
+      %th.phy_exam_table_col3 结果类型
+      %th.phy_exam_table_col5 备注
+    = render :partial => "edit_record_content_table", :collection => PhyExamRecordItem.get_record_items(category.id,phy_exam_record.id), :as => :record_item
+    %tr.phy_exam_table_last
+      %td{:colspan => "8"}
+        %ul
+          %li
+            %span 说明
+            = text_area_tag 'contents[]',record_extra.content,rows: "3",class: "phy_exam_input form-control phy_exam_last_memo"
+          %li
+            %span 医师
+            = text_area_tag 'doctors[]',record_extra.doctor,rows: "2",class: "phy_exam_input form-control phy_exam_last_doctor"

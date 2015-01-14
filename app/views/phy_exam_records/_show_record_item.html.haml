@@ -1,0 +1,13 @@
+%tr
+  %td
+    = record_item.phy_exam_tpl_item.category_item.name
+  %td
+    = record_item.result
+  %td
+    = record_item.decide
+  %td
+    - s_res = PhyExamStandResult.find(record_item.phy_exam_tpl_item_id)
+    - if s_res.result_type_id == 2
+      = "#{s_res.normal_min}-#{s_res.normal_max}(#{s_res.unit})"
+    - else
+      = s_res.result_text

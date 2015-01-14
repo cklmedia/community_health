@@ -12,11 +12,13 @@ $(document).ready ->
     $(".title",this).css
       "background":"linear-gradient(90deg, rgb(203, 245, 219), white)"
       "color":"rgb(40, 127, 68)"
+    $(".behind_btn").css "z-index","-1"
     $(".second_nav",this).fadeIn 300
   $(".left_nav_first_li").mouseleave ->
     $(".title",this).css
       "background":"linear-gradient(90deg, rgb(40, 127, 68), rgb(40, 127, 68))"
       "color":"white"
+    $(".behind_btn").css "z-index","1"
     $(".second_nav",this).fadeOut 300
 
 

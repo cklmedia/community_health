@@ -1,0 +1,20 @@
+%tr
+  %td.phy_exam_table_col1
+    = record_item.phy_exam_tpl_item.category_item.name
+    = hidden_field_tag 'phy_exam_tpl_item_ids[]', record_item.phy_exam_tpl_item.id
+  %td
+    = text_field_tag 'results[]',record_item.result,class: "phy_exam_input"
+  %td
+    = text_field_tag 'decides[]',record_item.decide,class: "phy_exam_input"
+  %td
+    = record_item.phy_exam_tpl_item.phy_exam_stand_result.result_text if record_item.phy_exam_tpl_item.phy_exam_stand_result
+  %td
+    = record_item.phy_exam_tpl_item.phy_exam_stand_result.normal_min
+    = "-"
+    = record_item.phy_exam_tpl_item.phy_exam_stand_result.normal_max
+  %td
+    = record_item.phy_exam_tpl_item.phy_exam_stand_result.unit if record_item.phy_exam_tpl_item.phy_exam_stand_result
+  %td
+    = record_item.phy_exam_tpl_item.phy_exam_stand_result.result_type.name if record_item.phy_exam_tpl_item.phy_exam_stand_result.result_type
+  %td
+    = record_item.phy_exam_tpl_item.phy_exam_stand_result.description if record_item.phy_exam_tpl_item.phy_exam_stand_result

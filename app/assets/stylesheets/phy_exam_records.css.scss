@@ -1,0 +1,61 @@
+.phy_exam_page_nav{margin: 40px 20px 0 15%;}
+/* page layout*/
+.phy_exam_main_content{width:83%;float:left;border-top: 1px solid #888;margin-left: 15%}
+.phy_exam_nav{width:15%;float:left;position: absolute;}
+
+
+/* main content's panel */
+.phy_exam_panel{border-bottom:1px solid #5a95d5;margin:20px 0 10px 0px;}
+.phy_exam_panel_list{float:left;}
+.phy_exam_panel_list ul li{margin:0 0 3px 0;}
+.phy_exam_panel_list label{font-weight:normal;}
+
+
+.phy_exam_panel_list{color:#000;font-weight:normal;}
+.phy_exam_panel_list ul li label{width:100px;display:inline-block;text-align:right;margin:0 10px 0 0;}
+
+/* table block */
+.phy_exam_panel table{border:1px solid #bdc4cb;width:100%;color:#737471;}
+
+.phy_exam_table_title{width:100%;margin:0 0 10px 0;}
+.phy_exam_table_title h3{font-size:14px;font-family:"微软雅黑";margin:0 0 0 10px;}
+.phy_exam_panel table th{text-align:center;
+						 background-color:#e5ebf7;
+						 border:1px solid #bdc4cb;
+						 height:25px;
+						 }
+		 
+.phy_exam_panel td{border:1px solid #bdc4cb;height:30px;text-align:center;}
+
+.phy_exam_table_col1{width:15%;text-align:left;}
+.phy_exam_table_col2{width:18%;}
+.phy_exam_table_col3{width:5%;}
+.phy_exam_table_col6{width:6%;}
+.phy_exam_table_col4{width:20%;}
+.phy_exam_table_col5{width:18%;}
+
+
+.phy_exam_table_last{min-width:700px;overflow:hidden;}
+.phy_exam_table_last ul li{float:left;margin:10px 20px 10px 10px;}
+.phy_exam_table_last span{display:block;float:left;font-weight:bold;color:#2696d8;vertical-align:top;margin:0 10px 0 0;}
+.phy_exam_textarea{margin:0 0 0 -30px;}
+.phy_exam_last_memo{width:655px;border:1px solid #bdc4cb;float:left;}
+.phy_exam_last_doctor{width:150px;border:1px solid #bdc4cb;float:left;}
+
+
+/* nav */
+.phy_exam_nav{color:#737471;font-size:14px;padding:80px 0 0 40px;}
+.phy_exam_nav h2{font-size:14px;margin:0 0 30px 0;font-weight:normal;}
+.phy_exam_nav li{margin:0 0 8px 0;}
+.phy_exam_nav  a{color:#737471;display:block;}
+.phy_exam_nav  a:hover{color:#2696d8;text-decoration:underline;}
+.phy_exam_nav_active a{color:#000;border-left:#2696d8 3px solid;text_decoration:none;padding:0 0 0 8px;margin-left:-11px;font-weight:bold;}
+.phy_exam_nav_last{margin-top:22px;}
+
+
+
+.phy_exam_record_item_show_table {font-size:14px;line-height:23px;color:#737471}
+.phy_exam_record_item_show_table th{color: #333;padding-left: 20px;width:20%}
+.phy_exam_record_item_show_table th:first-child {text-align:center;padding-left: 0px;}
+.phy_exam_record_item_show_table td{margin-left:20px;padding-left: 20px;width:20%}
+.phy_exam_record_item_show_table td:first-child {text-align:left;padding-left: 50px;}

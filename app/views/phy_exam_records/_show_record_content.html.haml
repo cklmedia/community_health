@@ -1,0 +1,19 @@
+.phy_exam_panel{:id => "phy_exam_#{category.id}"}
+  .details_panel_title
+    .blue_line
+    %h3= category.name
+  %div
+    %table.phy_exam_record_item_show_table
+      %tr
+        %th
+          体检项目
+        %th
+          检测结果
+        %th
+          检测结果判定
+        %th
+          体检模版参考结果
+      = render :partial =>"show_record_item", :collection => PhyExamRecordItem.get_record_items(category.id,phy_exam_record.id),:as=>:record_item
+      = render :partial =>"show_record_extra", :collection => PhyExamRecordExtra.select_extra(category.id,phy_exam_record.id),:as=>:record_extra
+  / page panel's list end
+  .clr
