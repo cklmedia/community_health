@@ -1,0 +1,33 @@
+.tsn_big_box
+  %h2{style: "text-align: center;"} 有氧能力
+  .tsn_member_info
+    %h4 基本信息
+    %ul{:style => "float: left;width: 50%;"}
+      %li="居民姓名：#{@health_aerobics.member.name}"
+      %li="性别：#{@health_aerobics.member.sex}"
+      %li="队列：#{@health_aerobics.team}"
+      %li="最大摄氧量：#{@health_aerobics.max_oxygen}"
+    %ul{:style => "float: left;width: 50%;"}
+      %li="备注：#{@health_aerobics.remark}"
+      %li="设备型号：#{@health_aerobics.device_type}"
+      %li="操作时间：#{@health_aerobics.operation_time.utc.strftime("%Y-%m-%d"" %H:%M")}"
+    .clr
+  .tsn_data_box
+    %h4 时间、心率、负荷
+    - array=@health_aerobics.Hrs.split("|")
+    - array.each do |i|
+      = i
+      %br
+    %h4 时间、心率、负荷
+    - array= @health_aerobics.HtHR.split("|")
+    - ben_i = 0
+    - end_i = 4
+    - (array.length/5).times do
+      %ul{:style => "float: left;width:10%;"}
+        - array[ben_i..end_i].each do |i|
+          %li= i
+      - ben_i = end_i +1
+      - end_i = end_i +5
+    .clr
+    %h4 评价内容
+    %p=simple_format(@health_aerobics.expert_comments)

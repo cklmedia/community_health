@@ -9,9 +9,9 @@
       .modal-body
         = form_for(PhyExamTpl.new) do |f|
           .form-group
-            = select_tag 'father_tpl_id',options_for_select(PhyExamTpl.all.collect {|p| [ p.name, p.id ]}),:class => "form-control", prompt: '--自定义模板--'
+            = select_tag 'father_tpl_id',options_for_select(PhyExamTpl.all.collect {|p| [ p.name, p.id ]}),:class => "form-control", prompt: '--自定义模板--',required:"required"
           .form-group
-            = f.text_field :name,:class=>'form-control',:placeholder=>'名称'
+            = f.text_field :name,:class=>'form-control',:placeholder=>'名称',required:"required"
           .form-group
-            = f.text_field :agency,:class=>'form-control',:placeholder=>'机构'
+            = f.text_field :agency,:class=>'form-control',:placeholder=>'机构',required:"required"
           = f.submit "添加",:class=>'btn btn-success form_button'

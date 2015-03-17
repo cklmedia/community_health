@@ -1,0 +1,210 @@
+.member_main_content
+  .member_pic
+    %h2 体适能
+    %img{:src => "/assets/session_pic.png"}
+  .member_chart_box{:style =>"padding: 3px;margin-top: -30px;"}
+    %div{:role => "tabpanel"}
+      %ul.nav.nav-tabs{:style =>"margin-bottom: 10px;"}
+        %li{:role => "presentation",:class => is_active_tab("health_bmds")}
+          %a{"data-toggle" => "tab", :href => "#health_bmds",:style => "padding: 5px 10px;"} 骨质疏松
+        %li{:role => "presentation",:class => is_active_tab("health_arterioscleroses")}
+          %a{"data-toggle" => "tab", :href => "#arteriosclerosis",:style => "padding: 5px 10px;"} 动脉硬化
+        %li{:role => "presentation",:class => is_active_tab("health_aerobics")}
+          %a{"data-toggle" => "tab", :href => "#health_aerobics",:style => "padding: 5px 10px;"} 有氧能力
+        %li{:role => "presentation",:class => is_active_tab("national_physicals")}
+          %a{"data-toggle" => "tab", :href => "#national_physicals",:style => "padding: 5px 10px;"} 国民体质
+        %li{:role => "presentation",:class => is_active_tab("diabetes")}
+          %a{"data-toggle" => "tab", :href => "#diabetes",:style => "padding: 5px 10px;"} 糖尿病
+        %li{:role => "presentation",:class => is_active_tab("new_in_bodies")}
+          %a{"data-toggle" => "tab", :href => "#new_in_bodies",:style => "padding: 5px 10px;"} 体成份
+        %li{:role => "presentation",:class => is_active_tab("balances")}
+          %a{"data-toggle" => "tab", :href => "#balances",:style => "padding: 5px 10px;"} 平衡能力
+      #myTabContent.tab-content
+        #health_bmds{:class => is_active_tab_content("health_bmds")}
+          - count = 0
+          .console_row_box
+            - @health_bmds[0..3].each do |p|
+              .console_col_list
+                %a{:href => "/physical_fitness/show_bmd/#{p.id}"}
+                  %div{:class => "console_box_#{count}"}
+                    %p.phy_agency=p.member.name
+                    %p.phy_name
+                      TI:#{p.TI};
+                      Z:#{p.Z};
+                      BMD:#{p.BMD}
+                    %p.phy_date=p.created_at.strftime("%Y-%m-%d")
+              - count += 1
+       
+          - if @health_bmds.count > 4
+            .console_row_box
+              - @health_bmds[4..6].each do |p|
+                .console_col_list
+                  %a{:href => "/physical_fitness/show_bmd/#{p.id}"}
+                    %div{:class => "console_box_#{count}"}
+                      %p.phy_agency=p.member.name
+                      %p.phy_name
+                        TI:#{p.TI};
+                        Z:#{p.Z};
+                        BMD:#{p.BMD}
+                      %p.phy_date=p.created_at.strftime("%Y-%m-%d")
+                - count += 1
+              .clr
+          .show_variable_paginate
+            %span.page_entries_info= page_entries_info @health_bmds
+            = will_paginate @health_bmds, :params=>{:active_tab => "health_bmds"}, renderer: BootstrapPagination::Rails if @health_bmds
+        #arteriosclerosis{:class => is_active_tab_content("health_arterioscleroses")}
+          - count = 0
+          .console_row_box
+            - @arteriosclerosis[0..3].each do |p|
+              .console_col_list
+                %a{:href => "/physical_fitness/show_arteriosclerosis/#{p.id}"}
+                  %div{:class => "console_box_#{count}"}
+                    %p.phy_agency=p.member.name
+                    %p{:style =>"font-size: 15px;"}="血管硬度:#{p.R_stiffness};血管硬度(左):#{p.L_stiffness};血管堵塞(右):#{p.R_vasoocclusion};血管堵塞(左):#{p.L_vasoocclusion}"
+                    %p.phy_date=p.created_at.strftime("%Y-%m-%d")
+              - count += 1
+       
+          - if @arteriosclerosis.count > 4
+            .console_row_box
+              - @arteriosclerosis[4..6].each do |p|
+                .console_col_list
+                  %a{:href => "/physical_fitness/show_arteriosclerosis/#{p.id}"}
+                    %div{:class => "console_box_#{count}"}
+                      %p.phy_agency=p.member.name
+                      %p{:style =>"font-size: 15px;"}="血管硬度:#{p.R_stiffness};血管硬度(左):#{p.L_stiffness};血管堵塞(右):#{p.R_vasoocclusion};血管堵塞(左):#{p.L_vasoocclusion}"
+                      %p.phy_date=p.created_at.strftime("%Y-%m-%d")
+                - count += 1
+              .clr
+          .show_variable_paginate
+            %span.page_entries_info= page_entries_info @arteriosclerosis
+            = will_paginate @arteriosclerosis,:params=>{:active_tab => "health_arterioscleroses"}, renderer: BootstrapPagination::Rails if @arteriosclerosis
+        #health_aerobics{:class => is_active_tab_content("health_aerobics")}
+          - count = 0
+          .console_row_box
+            - @health_aerobics[0..3].each do |p|
+              .console_col_list
+                %a{:href => "/physical_fitness/show_health_aerobic/#{p.id}"}
+                  %div{:class => "console_box_#{count}"}
+                    %p.phy_agency=p.member.name
+                    %p.phy_name="最大摄氧量:#{p.max_oxygen}"
+                    %p.phy_date=p.created_at.strftime("%Y-%m-%d")
+              - count += 1
+       
+          - if @health_aerobics.count > 4
+            .console_row_box
+              - @health_aerobics[4..6].each do |p|
+                .console_col_list
+                  %a{:href => "/physical_fitness/show_health_aerobic/#{p.id}"}
+                    %div{:class => "console_box_#{count}"}
+                      %p.phy_agency=p.member.name
+                      %p.phy_name=p.result
+                      %p.phy_date=p.created_at.strftime("%Y-%m-%d")
+                - count += 1
+              .clr
+          .show_variable_paginate
+            %span.page_entries_info= page_entries_info @health_aerobics
+            = will_paginate @health_aerobics,:params=>{:active_tab => "health_aerobics"}, renderer: BootstrapPagination::Rails if @health_aerobics
+        #national_physicals{:class => is_active_tab_content("national_physicals")}
+          - count = 0
+          .console_row_box
+            - @national_physicals[0..3].each do |p|
+              .console_col_list
+                %a{:href => "/physical_fitness/show_national_physical/#{p.id}"}
+                  %div{:class => "console_box_#{count}"}
+                    %p.phy_agency=p.member.name
+                    %p{:style =>"font-size: 15px;"}="身高体重得分:#{p.weight_score};肺活量得分:#{p.FVC_score};握力得分:#{p.grip_score};体前屈得分:#{p.body_flexion_score};台阶指数得分:#{p.step_index_score};纵跳得分:#{p.vertical_jump_score}"
+                    %p.phy_date=p.created_at.strftime("%Y-%m-%d")
+              - count += 1
+       
+          - if @national_physicals.count > 4
+            .console_row_box
+              - @national_physicals[4..6].each do |p|
+                .console_col_list
+                  %a{:href => "/physical_fitness/show_national_physical/#{p.id}"}
+                    %div{:class => "console_box_#{count}"}
+                      %p.phy_agency=p.member.name
+                      %p{:style =>"font-size: 15px;"}="身高体重得分:#{p.weight_score};肺活量得分:#{p.FVC_score};握力得分:#{p.grip_score};体前屈得分:#{p.body_flexion_score};台阶指数得分:#{p.step_index_score};纵跳得分:#{p.vertical_jump_score}"
+                      %p.phy_date=p.created_at.strftime("%Y-%m-%d")
+                - count += 1
+              .clr
+          .show_variable_paginate
+            %span.page_entries_info= page_entries_info @national_physicals
+            = will_paginate @national_physicals,:params=>{:active_tab => "national_physicals"},  renderer: BootstrapPagination::Rails if @national_physicals
+        #diabetes{:class => is_active_tab_content("diabetes")}
+          - count = 0
+          .console_row_box
+            - @diabetes[0..3].each do |p|
+              .console_col_list
+                %a{:href => "/physical_fitness/show_diabete/#{p.id}"}
+                  %div{:class => "console_box_#{count}"}
+                    %p.phy_agency=p.member.name
+                    %p.phy_name="象限:#{p.level};风险度:#{p.risk}"
+                    %p.phy_date=p.created_at.strftime("%Y-%m-%d")
+              - count += 1
+       
+          - if @diabetes.count > 4
+            .console_row_box
+              - @diabetes[4..6].each do |p|
+                .console_col_list
+                  %a{:href => "/physical_fitness/show_diabete/#{p.id}"}
+                    %div{:class => "console_box_#{count}"}
+                      %p.phy_agency=p.member.name
+                      %p.phy_name="象限:#{p.level};风险度:#{p.risk}"
+                      %p.phy_date=p.created_at.strftime("%Y-%m-%d")
+                - count += 1
+              .clr
+          .show_variable_paginate
+            %span.page_entries_info= page_entries_info @diabetes
+            = will_paginate @diabetes,:params=>{:active_tab => "diabetes"}, renderer: BootstrapPagination::Rails if @diabetes
+        #new_in_bodies{:class => is_active_tab_content("new_in_bodies")}
+          - count = 0
+          .console_row_box
+            - @new_in_bodies[0..3].each do |p|
+              .console_col_list
+                %a{:href => "/physical_fitness/show_new_in_bodies/#{p.id}"}
+                  %div{:class => "console_box_#{count}"}
+                    %p.phy_agency=p.member.name
+                    %p.phy_name="身体质量指数:#{p.get_fat_analysis_BMI}"
+                    %p.phy_date=p.created_at.strftime("%Y-%m-%d")
+              - count += 1
+       
+          - if @new_in_bodies.count > 4
+            .console_row_box
+              - @new_in_bodies[4..6].each do |p|
+                .console_col_list
+                  %a{:href => "/physical_fitness/show_new_in_bodies/#{p.id}"}
+                    %div{:class => "console_box_#{count}"}
+                      %p.phy_agency=p.member.name
+                      %p.phy_name="身体质量指数:#{p.get_fat_analysis_BMI}"
+                      %p.phy_date=p.created_at.strftime("%Y-%m-%d")
+                - count += 1
+              .clr
+          .show_variable_paginate
+            %span.page_entries_info= page_entries_info @new_in_bodies
+            = will_paginate @new_in_bodies,:params=>{:active_tab => "new_in_bodies"}, renderer: BootstrapPagination::Rails if @new_in_bodies
+        #balances{:class => is_active_tab_content("balances")}
+          - count = 0
+          .console_row_box
+            - @balances[0..3].each do |p|
+              .console_col_list
+                %a{:href => "/physical_fitness/show_balance/#{p.id}"}
+                  %div{:class => "console_box_#{count}"}
+                    %p.phy_agency=p.member.name
+                    %p.phy_name=p.protocol
+                    %p.phy_date=p.created_at.strftime("%Y-%m-%d")
+              - count += 1
+       
+          - if @balances.count > 4
+            .console_row_box
+              - @balances[4..6].each do |p|
+                .console_col_list
+                  %a{:href => "/physical_fitness/show_balance/#{p.id}"}
+                    %div{:class => "console_box_#{count}"}
+                      %p.phy_agency=p.member.name
+                      %p.phy_name=p.protocol
+                      %p.phy_date=p.created_at.strftime("%Y-%m-%d")
+                - count += 1
+              .clr
+          .show_variable_paginate
+            %span.page_entries_info= page_entries_info @balances
+            = will_paginate @balances,:params=>{:active_tab => "balances"}, renderer: BootstrapPagination::Rails if @balances

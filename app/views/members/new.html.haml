@@ -6,23 +6,23 @@
     = form_for(@member) do |f|
       = f.hidden_field :doctor_id,value:current_user.id
       .form-group
-        = f.text_field :name,:class=>'form-control',:placeholder=>'姓名'
+        = f.text_field :name,:class=>'form-control',:placeholder=>'姓名',required:"required"
       .form-group
-        = f.text_field :tel,:class=>'form-control',:placeholder=>'联系方式'
+        = f.text_field :tel,:class=>'form-control',:placeholder=>'联系方式',required:"required"
       .form-group
-        = f.text_field :birthday,:class=>'form-control',:placeholder=>'出生年月(例：1993-01-24)'
+        = f.text_field :birthday,:class=>'form-control',:placeholder=>'出生年月(例：1993-01-24)',required:"required"
       .form-group
-        = f.password_field :password,:class=>'form-control',:placeholder=>'密码'
+        = f.password_field :password,:class=>'form-control',:placeholder=>'密码',required:"required"
       .form-group
-        = f.password_field :password_confirmation,:class=>'form-control',:placeholder=>'密码确认'
+        = f.password_field :password_confirmation,:class=>'form-control',:placeholder=>'密码确认',required:"required"
       .form-group
         .row
           .col-md-4
-            = f.text_field :building,:class=>'form-control',:placeholder=>'幢(例：17)'
+            = f.text_field :building,:class=>'form-control',:placeholder=>'幢(例：17)',required:"required"
           .col-md-4
-            = f.text_field :unit,:class=>'form-control',:placeholder=>'单元(例：3)'
+            = f.text_field :unit,:class=>'form-control',:placeholder=>'单元(例：3)',required:"required"
           .col-md-4
-            = f.text_field :house,:class=>'form-control',:placeholder=>'门牌(204)'
+            = f.text_field :house,:class=>'form-control',:placeholder=>'门牌(204)',required:"required"
       .form-group
         .user_avater_input.form-control
           .col-md-2

@@ -1,0 +1,33 @@
+.tsn_big_box
+  %h2{style: "text-align: center;"} 骨质疏松
+  .tsn_member_info
+    %h4 基本信息
+    %ul{:style => "float: left;width: 50%;"}
+      %li="居民姓名：#{@health_bmd.member.name}"
+      %li="性别：#{@health_bmd.member.sex}"
+      %li="队列：#{@health_bmd.team}"
+    %ul{:style => "float: left;width: 50%;"}
+      %li="备注：#{@health_bmd.remark}"
+      %li="设备型号：#{@health_bmd.device_type}"
+      %li="操作时间：#{@health_bmd.operation_time.utc.strftime("%Y-%m-%d"" %H:%M")}"
+    .clr
+  .tsn_data_box
+    %h4 数据内容
+    %table.table.table-bordered.table-striped
+      %tr
+        %th 名称
+        %th 结果
+      %tr
+        %td 测试身高(cm)
+        %td=@health_bmd.height
+      %tr
+        %td TI值
+        %td=@health_bmd.TI
+      %tr
+        %td Z值
+        %td=@health_bmd.Z
+      %tr
+        %td BMD
+        %td=@health_bmd.BMD
+    %h4 评价内容
+    %p=simple_format(@health_bmd.expert_comments)

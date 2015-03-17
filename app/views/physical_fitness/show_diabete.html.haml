@@ -1,0 +1,45 @@
+.tsn_big_box
+  %h2{style: "text-align: center;"} 糖尿病
+  .tsn_member_info
+    %h4 基本信息
+    %ul{:style => "float: left;width: 50%;"}
+      %li="居民姓名：#{@diabete.member.name}"
+      %li="性别：#{@diabete.member.sex}"
+      %li="队列：#{@diabete.team}"
+    %ul{:style => "float: left;width: 50%;"}
+      %li="备注：#{@diabete.remark}"
+      %li="设备型号：#{@diabete.device_type}"
+      %li="操作时间：#{@diabete.operation_time.utc.strftime("%Y-%m-%d"" %H:%M")}"
+    .clr
+  .tsn_data_box
+    %h4 数据内容
+    %table.table.table-bordered.table-striped
+      %tr
+        %th 名称
+        %th 结果
+      %tr
+        %td 测试身高(cm)
+        %td=@diabete.height
+      %tr
+        %td IR值
+        %td=@diabete.IR
+      %tr
+        %td DC值
+        %td=@diabete.DC
+      %tr
+        %td IGT
+        %td=@diabete.IGT
+      %tr
+        %td Fsi
+        %td= @diabete.Fsi
+      %tr
+        %td Cn
+        %td= @diabete.Cn
+      %tr
+        %td 象限
+        %td= @diabete.level
+      %tr
+        %td 风险度
+        %td= @diabete.risk
+    %h4 评价内容
+    %p=simple_format(@diabete.expert_comments)

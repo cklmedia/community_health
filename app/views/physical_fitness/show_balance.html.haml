@@ -1,0 +1,39 @@
+.tsn_big_box
+  %h2{style: "text-align: center;"} 平衡能力
+  .tsn_member_info
+    %h4 基本信息
+    %ul{:style => "float: left;width: 50%;"}
+      %li="居民姓名：#{@balance.member.name}"
+      %li="性别：#{@balance.member.sex}"
+      %li="队列：#{@balance.team}"
+    %ul{:style => "float: left;width: 50%;"}
+      %li="备注：#{@balance.remark}"
+      %li="设备型号：#{@balance.device_type}"
+      %li="操作时间：#{@balance.operation_time.utc.strftime("%Y-%m-%d"" %H:%M")}"
+    .clr
+  .tsn_data_box
+    %h4 数据内容
+    %table.table.table-bordered.table-striped
+      %tr
+        %th 名称
+        %th 轨迹总长度
+        %th 外周面积
+        %th X轴平均值
+        %th Y轴平均值
+        %th X轴标准差
+        %th Y轴标准差
+        %th 标准差速度
+        %th 左侧体重分布(%)
+        %th 右侧体重分布(%)
+      - @balance.balance_datas.each do |r|
+        %tr
+          %td= r.get_pro_name(r.performance_name,r.single)
+          %td= r.trace_length
+          %td= r.C90_area2
+          %td= r.mean_x
+          %td= r.mean_y
+          %td= r.standard_dev_x
+          %td= r.standard_dev_y
+          %td= r.STD_velocity
+          %td= r.feft_weight_distribution
+          %td= r.right_weight_distribution

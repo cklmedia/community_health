@@ -11,9 +11,9 @@
           #for_edit
           = hidden_field_tag 'phy_exam_tpl_id', ""
           .form-group
-            = select_tag 'category_item_id','',id: "select_category_item",:class => "form-control",prompt: '--体检项目--'
+            = select_tag 'category_item_id','',id: "select_category_item",:class => "form-control",prompt: '--体检项目--',required:"required"
           .form-group
-            = select_tag 'result_type_id', options_for_select(ResultType.all.collect {|p| [ p.name, p.id ]}),:class => 'form-control', prompt: '--结果值类型--'
+            = select_tag 'result_type_id', options_for_select(ResultType.all.collect {|p| [ p.name, p.id ]}),:class => 'form-control', prompt: '--结果值类型--',required:"required"
           #num_type
             .form-group
               = text_field_tag 'unit',nil,class: "form-control",:placeholder=>'检测结果单位'
@@ -22,7 +22,7 @@
             .form-group
               = text_field_tag 'normal_min',nil,class: "form-control",:placeholder=>'最低值'
           .form-group
-            = text_field_tag 'result_text',nil,class: "form-control",:placeholder=>'参考结果'
+            = text_field_tag 'result_text',nil,class: "form-control",:placeholder=>'参考结果',required:"required"
           .form-group
             = text_field_tag 'device',nil,class: "form-control",:placeholder=>'检测设备'
           .form-group

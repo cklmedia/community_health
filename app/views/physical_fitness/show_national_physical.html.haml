@@ -1,0 +1,65 @@
+.tsn_big_box
+  %h2{style: "text-align: center;"} 国民体质
+  .tsn_member_info
+    %h4 基本信息
+    %ul{:style => "float: left;width: 50%;"}
+      %li="居民姓名：#{@national_physical.member.name}"
+      %li="性别：#{@national_physical.member.sex}"
+      %li="队列：#{@national_physical.team}"
+    %ul{:style => "float: left;width: 50%;"}
+      %li="备注：#{@national_physical.remark}"
+      %li="设备型号：#{@national_physical.device_type}"
+      %li="操作时间：#{@national_physical.operation_time.utc.strftime("%Y-%m-%d"" %H:%M")}"
+    .clr
+  .tsn_data_box
+    %h4 数据内容
+    %table.table.table-bordered.table-striped
+      %tr
+        %th 名称
+        %th 结果
+        %th 得分
+      %tr
+        %td 测试身高(cm)
+        %td=@national_physical.height
+        %td{rowspan:"2",style:"vertical-align:middle;"}=@national_physical.weight_score
+      %tr
+        %td 测试体重(kg)
+        %td=@national_physical.weight
+      %tr
+        %td 肺活量
+        %td=@national_physical.FVC
+        %td=@national_physical.FVC_score
+      %tr
+        %td 握力
+        %td=@national_physical.grip
+        %td=@national_physical.grip_score
+      %tr
+        %td 体前屈
+        %td=@national_physical.body_flexion
+        %td=@national_physical.body_flexion_score
+      %tr
+        %td 台阶指数
+        %td=@national_physical.step_index
+        %td=@national_physical.step_index_score
+      %tr
+        %td 纵跳
+        %td=@national_physical.vertical_jump
+        %td=@national_physical.vertical_jump_score
+      %tr
+        %td 俯卧撑(个)
+        %td=@national_physical.push_up
+        %td=@national_physical.push_up_score
+      %tr
+        %td 单脚站立
+        %td=@national_physical.one_leg_standing
+        %td=@national_physical.one_leg_standing_score
+      %tr
+        %td 反应时
+        %td=@national_physical.reaction
+        %td=@national_physical.reaction_score
+      %tr
+        %td 仰卧起坐(个)
+        %td=@national_physical.situp
+        %td=@national_physical.situp_score
+    %h4 评价内容
+    %p=simple_format(@national_physical.expert_comments)

@@ -1,0 +1,304 @@
+.tsn_big_box
+  %h2{style: "text-align: center;"} 体成份
+  .tsn_member_info
+    %h4 基本信息
+    %ul{:style => "float: left;width: 50%;"}
+      %li="居民姓名：#{@new_in_body.member.name}"
+      %li="测试身高(cm)：#{@new_in_body.height}"
+      %li="测试体重(kg)：#{@new_in_body.weight}"
+    %ul{:style => "float: left;width: 50%;"}
+      %li="性别：#{@new_in_body.member.sex}"
+      %li="操作时间：#{@new_in_body.operation_time.utc.strftime("%Y-%m-%d"" %H:%M")}"
+    .clr
+  .tsn_data_box
+    %h4 身体成分分析
+    %table.table.table-bordered.table-striped
+      %tr
+        %th 名称
+        %th 结果
+        %th 正常范围
+      %tr
+        %td 细胞内水分
+        %td= @new_in_body.intercellular_water
+        %td= @new_in_body.idea_intercellular_water
+      %tr
+        %td 细胞外水分
+        %td= @new_in_body.extracellular_water
+        %td= @new_in_body.idea_extracellular_water
+      %tr
+        %td 蛋白质(kg)
+        %td= @new_in_body.protein_mass
+        %td= @new_in_body.idea_protein_mass
+      %tr
+        %td 无机盐(kg)
+        %td= @new_in_body.minerl_mass
+        %td= @new_in_body.idea_minerl_mass
+      %tr
+        %td 体脂肪(kg)
+        %td= @new_in_body.body_fat_mass
+        %td= @new_in_body.idea_body_fat_mass
+      %tr
+        %td 无机盐骨内含量
+        %td= @new_in_body.bone_mineral_contents
+        %td \
+      %tr
+        %td 肌肉量
+        %td= @new_in_body.soft_lean_mass
+        %td \
+      %tr
+        %td 去脂体重
+        %td= @new_in_body.fat_free_mass
+        %td \
+      %tr
+        %td 身体水分含量
+        %td= @new_in_body.total_body_water
+        %td \
+    %h4 体重控制
+    %table.table.table-bordered.table-striped
+      %tr
+        %th 名称
+        %th 结果
+      %tr
+        %td 目标体重(kg)
+        %td= @new_in_body.target_weight
+      %tr
+        %td 体重控制
+        %td= @new_in_body.weight_control
+      %tr
+        %td 脂肪控制
+        %td= @new_in_body.fat_control
+      %tr
+        %td 肌肉控制
+        %td= @new_in_body.muscle_control
+      %tr
+        %td 健康评估
+        %td= @new_in_body.fitness_score
+    %h4 肌肉脂肪分析
+    %table.table.table-bordered.table-striped
+      %tr
+        %th 名称
+        %th 结果
+        %th 正常范围
+      %tr
+        %td 体重(%)
+        %td= @new_in_body.percent_weight
+        %td= @new_in_body.idea_weight
+      %tr
+        %td 骨骼肌(kg)
+        %td= @new_in_body.skeletal_muscle_mass
+        %td
+      %tr
+        %td 骨骼肌(%)
+        %td= @new_in_body.percent_skeletal_muscle_mass
+        %td= @new_in_body.idea_skeleta_muscle_mass
+      %tr
+        %td 体脂肪(%)
+        %td= @new_in_body.percent_body_fat_mass
+        %td= @new_in_body.idea_body_fat_mass
+    %h4 肥胖分析
+    %table.table.table-bordered.table-striped
+      %tr
+        %th 名称
+        %th 结果
+        %th 正常范围
+      %tr
+        %td 身体质量指数(kg/㎡)
+        %td= @new_in_body.BMI
+        %td= @new_in_body.idea_BMI
+      %tr
+        %td 体脂百分比(%)
+        %td= @new_in_body.percent_body_fat
+        %td= @new_in_body.idea_body_fat
+      %tr
+        %td 腰臀脂肪比
+        %td= @new_in_body.WHR
+        %td= @new_in_body.idea_WHR
+    %h4 肌肉均衡
+    %table.table.table-bordered.table-striped
+      %tr
+        %th 名称
+        %th 结果
+      %tr
+        %td 右上肢(kg)
+        %td= @new_in_body.right_arm
+      %tr
+        %td 右上肢(%)
+        %td= @new_in_body.left_arm
+      %tr
+        %td 左上肢(kg)
+        %td= @new_in_body.percent_left_arm
+      %tr
+        %td 左上肢(%)
+        %td= @new_in_body.percent_left_arm
+      %tr
+        %td 躯干(kg)
+        %td= @new_in_body.trunk
+      %tr
+        %td 躯干(%)
+        %td= @new_in_body.percent_trunk
+      %tr
+        %td 右下肢(kg)
+        %td= @new_in_body.right_leg
+      %tr
+        %td 右下肢(%)
+        %td= @new_in_body.percent_right_leg
+      %tr
+        %td 左下肢(kg)
+        %td= @new_in_body.left_leg
+      %tr
+        %td 左下肢(%)
+        %td= @new_in_body.percent_left_leg
+    %h4 阶段性浮肿(ECF/TBF)
+    %table.table.table-bordered.table-striped
+      %tr
+        %th 名称
+        %th 结果
+      %tr
+        %td 右上肢
+        %td= @new_in_body.ECF_TBF_right_arm_edema
+      %tr
+        %td 左上肢
+        %td= @new_in_body.ECF_TBF_left_arm_edema
+      %tr
+        %td 躯干
+        %td= @new_in_body.ECF_TBF_trunk_edema
+      %tr
+        %td 右下肢
+        %td= @new_in_body.ECF_TBF_right_leg_edema
+      %tr
+        %td 左下肢
+        %td= @new_in_body.ECF_TBF_left_leg_edema
+    %h4 阶段性浮肿(ECW/TBF)
+    %table.table.table-bordered.table-striped
+      %tr
+        %th 名称
+        %th 结果
+      %tr
+        %td 右上肢
+        %td= @new_in_body.ECW_TBW_right_arm_edema
+      %tr
+        %td 左上肢
+        %td= @new_in_body.ECW_TBW_left_arm_edema
+      %tr
+        %td 躯干
+        %td= @new_in_body.ECW_TBW_trunk_edema
+      %tr
+        %td 右下肢
+        %td= @new_in_body.ECW_TBW_right_leg_edema
+      %tr
+        %td 左下肢
+        %td= @new_in_body.ECW_TBW_left_leg_edema
+    %h4 浮肿
+    %table.table.table-bordered.table-striped
+      %tr
+        %th 名称
+        %th 结果
+      %tr
+        %td ECF/TBF
+        %td= @new_in_body.ECF_TBF_edema
+      %tr
+        %td ECW/TBW
+        %td= @new_in_body.ECW_TBW_edema
+    %h4 营养评估
+    %table.table.table-bordered.table-striped
+      %tr
+        %th 名称
+        %th 结果
+      %tr
+        %td 蛋白质
+        %td= @new_in_body.get_nutritional_assessment_protein
+      %tr
+        %td 无机盐
+        %td= @new_in_body.get_nutritional_assessment_salt
+      %tr
+        %td 脂肪
+        %td= @new_in_body.get_nutritional_assessment_fat
+      %tr
+        %td 浮肿(520特有)
+        %td= @new_in_body.get_nutritional_assessment_edema
+    %h4 体重管理
+    %table.table.table-bordered.table-striped
+      %tr
+        %th 名称
+        %th 结果
+      %tr
+        %td 体重
+        %td= @new_in_body.manage_weight
+      %tr
+        %td 骨骼肌
+        %td= @new_in_body.manage_skeletal_muscle
+      %tr
+        %td 脂肪
+        %td= @new_in_body.manage_fat
+    %h4 肥胖分析
+    %table.table.table-bordered.table-striped
+      %tr
+        %th 名称
+        %th 结果
+      %tr
+        %td 身体质量指数
+        %td= @new_in_body.get_fat_analysis_BMI
+      %tr
+        %td 体脂百分比
+        %td= @new_in_body.get_fat_analysis_percent_body_fat
+      %tr
+        %td 腰臀百分比
+        %td= @new_in_body.get_fat_analysis_WHR
+    %h4 均衡分析
+    %table.table.table-bordered.table-striped
+      %tr
+        %th 名称
+        %th 结果
+      %tr
+        %td 上肢
+        %td= @new_in_body.get_balanced_analysis_arm
+      %tr
+        %td 下肢
+        %td= @new_in_body.get_balanced_analysis_leg
+      %tr
+        %td 上下肢
+        %td= @new_in_body.get_balanced_analysis_arm_leg
+    %h4 健康（720）
+    %table.table.table-bordered.table-striped
+      %tr
+        %th 名称
+        %th 结果
+      %tr
+        %td 上肢
+        %td= @new_in_body.get_physical_strength_arm
+      %tr
+        %td 下肢
+        %td= @new_in_body.get_physical_strength_leg
+      %tr
+        %td 肌肉
+        %td= @new_in_body.get_physical_strength_muscle
+    %h4 身体力量
+    %table.table.table-bordered.table-striped
+      %tr
+        %th 名称
+        %th 结果
+      %tr
+        %td 身体水分
+        %td= @new_in_body.get_health_diagnosis_body_water
+      %tr
+        %td 浮肿
+        %td= @new_in_body.get_health_diagnosis_edema
+      %tr
+        %td 生活方式
+        %td= @new_in_body.get_health_diagnosis_life_pattern
+    %h4 其他
+    %table.table.table-bordered.table-striped
+      %tr
+        %th 名称
+        %th 结果
+      %tr
+        %td 内脏脂肪面积
+        %td= @new_in_body.visceral_fat_area
+      %tr
+        %td 基础代谢
+        %td= @new_in_body.BMR
+      %tr
+        %td 代谢正常范围
+        %td= @new_in_body.idea_WHR
+    %h4 评价内容
+    %p=simple_format(@new_in_body.expert_comments)

@@ -5,9 +5,9 @@
   .edit_user_form
     = form_for(@doctor) do |f|
       .form-group
-        = f.text_field :name,:class=>'form-control',:placeholder=>'姓名'
+        = f.text_field :name,:class=>'form-control',:placeholder=>'姓名',required:"required"
       .form-group
-        = f.text_field :tel,:class=>'form-control',:placeholder=>'联系电话'
+        = f.text_field :tel,:class=>'form-control',:placeholder=>'联系电话',required:"required"
       .form-group
         = f.password_field :password,:class=>'form-control',:placeholder=>'密码'
       .form-group

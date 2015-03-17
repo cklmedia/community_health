@@ -11,6 +11,18 @@ class Member < ActiveRecord::Base
   has_many :purine_triones
   has_many :cholesterins
   has_many :body_temperatures
+  has_many :zhong_yi_ti_zhis
+  has_many :health_bmds
+  has_many :arteriosclerosis
+  has_many :health_aerobics
+  has_many :national_physicals
+  has_many :diabetess
+  has_many :new_in_bodys
+  has_many :balances
+
+  def get_age
+    Time.new.year-self.birthday.year
+  end
 
   def blood_pressure_time_data(start_time,end_time)
     times = BloodPressure.find_by_sql(["select * from blood_pressures where member_id = ? and created_at >= ? and created_at <= ? order by created_at",self.id,start_time,end_time])

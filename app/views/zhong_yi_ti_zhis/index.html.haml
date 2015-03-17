@@ -1,0 +1,30 @@
+.member_main_content
+  .member_pic
+    %h2 中医体质辨识
+    %img{:src => "/assets/session_pic.png"}
+  .member_chart_box{:style =>"padding: 3px;"}
+    - count = 0
+    .console_row_box
+      - @zhong_yi_ti_zhis[0..3].each do |p|
+        .console_col_list
+          %a{:href => "#"}
+            %div{:class => "console_box_#{count}"}
+              %p.phy_agency=p.member.name
+              %p.phy_name=p.result
+              %p.phy_date=p.created_at.strftime("%Y-%m-%d")
+        - count += 1
+ 
+    - if @zhong_yi_ti_zhis.count > 4
+      .console_row_box
+        - @zhong_yi_ti_zhis[4..6].each do |p|
+          .console_col_list
+            %a{:href => "#"}
+              %div{:class => "console_box_#{count}"}
+                %p.phy_agency=p.member.name
+                %p.phy_name=p.result
+                %p.phy_date=p.created_at.strftime("%Y-%m-%d")
+          - count += 1
+        .clr
+    .show_variable_paginate
+      %span.page_entries_info= page_entries_info @zhong_yi_ti_zhis
+      = will_paginate @zhong_yi_ti_zhis, renderer: BootstrapPagination::Rails if @zhong_yi_ti_zhis

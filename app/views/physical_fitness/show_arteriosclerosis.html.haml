@@ -1,0 +1,60 @@
+.tsn_big_box
+  %h2{style: "text-align: center;"} 动脉硬化
+  .tsn_member_info
+    %h4 基本信息
+    %ul{:style => "float: left;width: 50%;"}
+      %li="居民姓名：#{@arteriosclerosis.member.name}"
+      %li="性别：#{@arteriosclerosis.member.sex}"
+      %li="队列：#{@arteriosclerosis.team}"
+    %ul{:style => "float: left;width: 50%;"}
+      %li="备注：#{@arteriosclerosis.remark}"
+      %li="设备型号：#{@arteriosclerosis.device_type}"
+      %li="操作时间：#{@arteriosclerosis.operation_time.utc.strftime("%Y-%m-%d"" %H:%M")}"
+    .clr
+  .tsn_data_box
+    %h4 数据内容
+    %table.table.table-bordered.table-striped
+      %tr
+        %th 名称
+        %th 结果
+      %tr
+        %td 心率
+        %td=@arteriosclerosis.HR
+      %tr
+        %td 右臂收缩压
+        %td=@arteriosclerosis.Rb_SYS
+      %tr
+        %td 右臂舒张压
+        %td=@arteriosclerosis.Rb_DIA
+      %tr
+        %td 左臂收缩压
+        %td=@arteriosclerosis.Lb_SYS
+      %tr
+        %td 左臂舒张压
+        %td=@arteriosclerosis.Lb_DIA
+      %tr
+        %td 右脚根收缩压
+        %td= @arteriosclerosis.Ra_SYS
+      %tr
+        %td 右脚根舒张压
+        %td= @arteriosclerosis.Ra_DIA
+      %tr
+        %td 左脚根收缩压
+        %td= @arteriosclerosis.La_SYS
+      %tr
+        %td 左脚根舒张压
+        %td= @arteriosclerosis.La_DIA
+      %tr
+        %td 血管硬度(左）
+        %td= @arteriosclerosis.L_stiffness
+      %tr
+        %td 血管硬度（右）
+        %td= @arteriosclerosis.R_stiffness
+      %tr
+        %td 血管堵塞(左）
+        %td= @arteriosclerosis.L_vasoocclusion
+      %tr
+        %td 血管堵塞（右）
+        %td= @arteriosclerosis.R_vasoocclusion
+    %h4 评价内容
+    %p=simple_format(@arteriosclerosis.expert_comments)

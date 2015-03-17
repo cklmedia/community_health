@@ -48,5 +48,15 @@ window.App =
       $.get '/phy_exam_tpls/list_catagory_item/'+category_id, (data) ->
         slt_category_item.options.add(new Option(option[0], option[1])) for option in data
         $("#phy_exam_item_modal").modal show: true
+        
+    $("#member_password,#member_password_confirmation").blur ->
+      if $("#member_password_confirmation").val() != "" && $("#member_password").val() != "" && $("#member_password_confirmation").val() != $("#member_password").val()
+        alert "两个密码不一样，请重新输入！"
+        $("#member_password").focus()
+    $("#doctor_password_confirmation").blur ->
+      if $("#doctor_password_confirmation").val() != "" && $("#doctor_password").val() != "" && $("#doctor_password_confirmation").val() != $("#doctor_password").val()
+        alert "两个密码不一样，请重新输入！"
+        $("#doctor_password").focus()
+
 $(document).ready ->
   App.init()
