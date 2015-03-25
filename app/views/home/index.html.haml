@@ -12,13 +12,13 @@
               %p.num=@member_num
               %p.type="位居民"
         .console_col
-          %a{:href => "#"}
+          %a{:href => phy_exam_records_path }
             .console_phy_box
               %p.name="他们有："
               %p.num=@phy_num
               %p.type="份体检档案"
         .console_col
-          %a{:href => "#"}
+          %a{:href => list_doctor_members_path}
             .console_house_box
               %p.name="他们有："
               %p.num=@house_num
@@ -26,19 +26,19 @@
         .clr
       .console_row_box
         .console_col
-          %a{:href => "#"}
+          %a{:href => physical_fitness_index_path}
             .console_tishineng_box
               %p.name="他们有："
               %p.num=@tishineng
               %p.type="条提示能数据"
         .console_col
-          %a{:href => "#"}
+          %a{:href => zhong_yi_ti_zhis_path}
             .console_zhongyi_box
               %p.name="他们有："
               %p.num=@zhonngyi
               %p.type="条中医体质数据"
         .console_col
-          %a{:href => "#"}
+          %a{:href => list_doctor_members_path}
             .console_msg_box
               %p.name="他们有："
               %p.num=@msg_num

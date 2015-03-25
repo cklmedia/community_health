@@ -7,7 +7,7 @@
           .image_title
             .doctor_base
               =d.name+"(#{d.sex})"+d.tel
-              = link_to "结交", 'javascript:void(0)', :class =>"btn btn-success bundling_doctor #{can_bundling_doctor?(d.id)}", :data => {:doctor_id=>d.id }
+              = link_to "绑定", 'javascript:void(0)', :class =>"btn btn-success bundling_doctor #{can_bundling_doctor?(d.id)}", :data => {:doctor_id=>d.id }
           .doctor_information_box
             %img{:src=>"#{d.avatar_url}"}
             %p="简介："+d.introduce

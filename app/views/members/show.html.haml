@@ -75,7 +75,8 @@
           = render :partial => "members/communicate_msgs",:locals =>{:doctor => current_user,:member => @member}
         .input-group
           = form_tag(send_msg_doc_members_path,method:'post',remote: true,:style => "display: table-row;",:id => "send_msg_doc") do
-            %textarea.form-control#communicate_msg{:type => "textarea",:style=>"resize:none",name:"commiunicate_msg"}
+            %input{:name => "member_id", :type => "text", :value => "#{@member.id}",:style=>"display:none"}
+            %textarea.form-control#communicate_msg{:type => "textarea",:style=>"resize:none",name:"commiunicate_msg",:required=>"required"}
             .span.input-group-btn
               %button.btn.btn-success.communicate_send_btn{:type=>"submit"}="发送"
     .clr

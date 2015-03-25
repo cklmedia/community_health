@@ -61,8 +61,10 @@ class MembersController < ApplicationController
   end
 
   def send_msg_doc
-    member = current_user
-    msg = DoctorCommunicateMember.new(doctor_id:member.doctor_id,msg:params[:commiunicate_msg],member_id:member.id,sending:member.class.to_s)
+    puts "params[:member_id]----------#{params[:member_id]}"
+    @member = Member.find(params[:member_id])
+    @doctor = @member.doctor
+    msg = DoctorCommunicateMember.new(doctor_id:@member.doctor_id,msg:params[:commiunicate_msg],member_id:@member.id,sending:current_user.class.to_s)
     respond_to do |format|
       if msg.save
         format.html { redirect_to :back }

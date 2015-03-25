@@ -23,19 +23,21 @@ $(document).ready ->
   $(".bundling_doctor").click ->
     doctor_id = $(this).attr("data-doctor-id")
     $.get "/members/bundling_doctor/" + doctor_id, (data) ->
-      if data.result2
-        alert "结交成功，赶紧去和你的新社区医生交流吧！"
+      if data.result
+        alert "绑定成功，赶紧去和你的新社区医生交流吧！"
       else
-        alert "结交失败，请刷新之后再来一次！"
+        alert "绑定失败，请刷新之后再来一次！"
       window.location.reload()
 
   # 使聊天窗口滚动条出现在最后端
   $("#communicate_doc_content")[0].scrollTop = $("#communicate_doc_content")[0].scrollHeight if $("#communicate_doc_content")[0]
   # 获取与社区医生的信息条数
   if $("#m_get_msg_time").text()
+    # console.log $("#member_show_id").text()
     if $("#member_show_id").text() then member_id = $("#member_show_id").text() else member_id = "null"
     get_new_msg_num = ->
       time = $("#m_get_msg_time").text()
       $.get "/members/get_new_msg_num/" + time + "&" + member_id, (data) ->
+        # console.log data.number
         $(".new_m_msg_show").text data.number+"条新信息"
     setInterval get_new_msg_num, 3000
