@@ -1,7 +1,9 @@
 class HomeController < ApplicationController
   def index
-    get_member_num
-    get_nums
+    if current_user.class.to_s == "Doctor"
+      get_member_num
+      get_nums
+    end
   end
   private
 

@@ -19,6 +19,7 @@ class Member < ActiveRecord::Base
   has_many :diabetess
   has_many :new_in_bodys
   has_many :balances
+  has_many :phy_exam_reocrds, :class_name=>"PhyExamRecord"
 
   def get_age
     Time.new.year-self.birthday.year
@@ -43,6 +44,11 @@ class Member < ActiveRecord::Base
   def get_diastolic(start_time,end_time)
     datas = BloodPressure.find_by_sql(["select * from blood_pressures where member_id = ? and created_at >= ? and created_at <= ? order by created_at",self.id,start_time,end_time])
     datas.map { |data| [data[:created_at].strftime("%Y-%m-%d"" %H:%M"),data[:diastolic]] }
+  end
+
+  def get_pulse(start_time,end_time)
+    datas = BloodPressure.find_by_sql(["select * from blood_pressures where member_id = ? and created_at >= ? and created_at <= ? order by created_at",self.id,start_time,end_time])
+    datas.map { |data| [data[:created_at].strftime("%Y-%m-%d"" %H:%M"),data[:pulse]] }
   end
   # 血糖 highcharts处理
   def blood_sugars_time_data(start_time,end_time)

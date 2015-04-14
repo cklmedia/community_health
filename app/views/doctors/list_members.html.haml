@@ -1,7 +1,7 @@
 .member_main_content
   .member_pic
-    %h2 居民列表
-    %img{:src => "/assets/session_pic.png"}
+    %h2{:style => "color:#2fa857"} 居民列表
+    %img{:src => "/assets/jumin.png"}
   .member_chart_box
     - count = 0
     .console_row_box
@@ -19,9 +19,9 @@
                 #{p.name}-
                 %span=p.tel
               %ul.member_info
-                %li="体检档案:#{p.name}"
+                %li="体检档案:#{p.phy_exam_reocrds.count}"
                 %li="居家检测:#{house_num}"
-                %li="提示能:0;"
+                %li="体适能:0;"
                 %li="中医体质:0;"
                 %li="留言:#{p.doctor_communicate_members.count}"
         - count += 1
@@ -51,7 +51,7 @@
                   #{p.name}-
                   %span=p.tel
                 %ul.member_info
-                  %li="体检档案:#{p.name}"
+                  %li="体检档案:#{p.phy_exam_reocrds}"
                   %li="居家检测:#{house_num}"
                   %li="提示能:0;"
                   %li="中医体质:0;"

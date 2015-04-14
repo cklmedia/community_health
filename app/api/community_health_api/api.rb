@@ -49,15 +49,6 @@ module CommunityHealthApi
       end
     end
 
-    class TotalTime < Grape::Entity
-      expose :records, using: APIEntities::UserInfo do |records, options|
-        options[:records]    
-      end
-      expose :time, if: lambda { |instance, options| options[:time] } do |instance, options|
-        options[:time]
-      end
-    end
-
   end
 
   class API < Grape::API
@@ -67,45 +58,62 @@ module CommunityHealthApi
 
     helpers APIHelpers
 
-
-    get "/get_all_users" do
-      users = User.all
-      if !users.blank?
-        present 1, :with => APIEntities::User, records: users
-        return
+    # 血压
+    post "/post_blood_pressure" do
+      res = BloodPressure.new(member_id:params[:member_id],
+        diastolic:params[:diastolic],
+        systolic:params[:systolic],
+        pulse:params[:pulse])
+      if res.save
+        return {"status" => 1,"msg" => "succeed"}
       else
-        return result={"status"=>0,"err_msg"=>"no user be found"}
+        return {"status" => 0,"msg" => "fail"}
       end
     end
-
-    post "/post_register" do
-      card = params[:card]
-      action = params[:action]
-      user = User.find_by_card(card)
-      RegisterRecord.create!(user:user,status:action,register_time:Time.now)
+    # 血糖
+    post "/post_blood_sugar" do
+      res = BloodSugar.new(member_id:params[:member_id],
+        result:params[:result],
+        test_type:params[:test_type],
+        measure_time:params[:measure_time])
+      if res.save
+        return {"status" => 1,"msg" => "succeed"}
+      else
+        return {"status" => 0,"msg" => "fail"}
+      end
     end
-
-    get "/get_one_user/:card" do 
-      card = params[:card]
-      user = User.find_by_card(card)
-      present user, :with => APIEntities::UserInfo
+    # 体温
+    post "/post_body_temperatures" do
+      res = BodyTemperature.new(member_id:params[:member_id],
+        result:params[:result],
+        measure_time:params[:measure_time])
+      if res.save
+        return {"status" => 1,"msg" => "succeed"}
+      else
+        return {"status" => 0,"msg" => "fail"}
+      end
     end
-
-    post "/post_user_pwd" do
-      pwd = params[:pwd]
-      card = params[:card]
-      user = User.find_by_card(card)
-      user.register_pwd = pwd
-      user.save
+    # 尿酸
+    post "/post_purine_triones" do
+      res = PurineTrione.new(member_id:params[:member_id],
+        result:params[:result],
+        test_type:params[:test_type],
+        measure_time:params[:measure_time])
+      if res.save
+        return {"status" => 1,"msg" => "succeed"}
+      else
+        return {"status" => 0,"msg" => "fail"}
+      end
     end
-    
-    get "/count_all_user_time/:year/:month/:type" do
-      type = params[:type]
-      year = params[:year]
-      month = params[:month]
-      time_arr = User.get_sort_time_arr(year,month,type)
-      user_arr = User.get_sort_user_by_time(year,month,type)
-      present 1, :with => APIEntities::TotalTime,:time => time_arr,records: user_arr
+    # 中医体质辨识
+    post "/post_zhong_yi_ti_zhis" do
+      res = PurineTrione.new(member_id:params[:member_id],
+        result:params[:result])
+      if res.save
+        return {"status" => 1,"msg" => "succeed"}
+      else
+        return {"status" => 0,"msg" => "fail"}
+      end
     end
 
   end

@@ -25,7 +25,13 @@ a:hover{text-decoration: none;}
 .header_title ul li:first-child{padding: 0px !important;}
 .header_title ul li:first-child img{width: 80px;height: 55px;}
 // 低栏
-.flooter{background-color: #555;color: white;min-width:960px; padding-right: 45px;}
+.flooter{  position: absolute;
+  color: gray;
+  min-width: 960px;
+  padding-right: 45px;
+  margin: auto;
+  width: 100%;
+  margin-top: -30px;}
 // 二级菜单悬浮动画效果
 .second_nav li:hover{
 	animation:second_nav_hover 0.3s linear 0s infinite alternate;

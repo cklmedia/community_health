@@ -1,6 +1,7 @@
 class PhyExamRecordsController < ApplicationController
   def index
-  	@phy_exam_records = PhyExamRecord.all.paginate(:page => params[:page])
+  	@phy_exam_records = PhyExamRecord.select_can_see.paginate(:page => params[:page])
+
   end
 
   def create
@@ -36,6 +37,10 @@ class PhyExamRecordsController < ApplicationController
 
   def show
   	@phy_exam_record = PhyExamRecord.find(params[:id])
+    if @phy_exam_record.member.doctor_id != current_user.id
+      flash[:danger] = "你未与该居民绑定，无权访问改用户资料。"
+      redirect_to :back
+    end
   end
 
   def update_record

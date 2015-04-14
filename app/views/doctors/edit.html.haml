@@ -1,7 +1,7 @@
 .edit_user_big_box
   .edit_user_pic
-    %h2 社区医生个人信息编辑
-    %img{:src => "/assets/session_pic.png"}
+    %h2{:style => "color:#2fa857"} 社区医生个人信息编辑
+    %img{:src => "/assets/person_info.png"}
   .edit_user_form
     = form_for(@doctor) do |f|
       .form-group
@@ -23,4 +23,4 @@
           %input.create_member_sex{:checked => "checked", :type => "checkbox",:name => "sex"}
       .form-group
         = f.text_area :introduce,:class=>'form-control',:placeholder=>'简介，包括自己擅长的专业领域。'
-      = f.submit "注册",:class=>'btn btn-success form_button'
+      = f.submit "保存",:class=>'btn btn-success form_button'

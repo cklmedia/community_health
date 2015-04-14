@@ -59,7 +59,7 @@ class MembersController < ApplicationController
       render :json => {:result=>false}.to_json
     end
   end
-
+  # 发送留言
   def send_msg_doc
     puts "params[:member_id]----------#{params[:member_id]}"
     @member = Member.find(params[:member_id])
@@ -75,7 +75,7 @@ class MembersController < ApplicationController
       end
     end
   end
-
+  # 获取新留言
   def get_new_msg_num
     time = params[:time]
     if current_user.class.to_s == "Member"
@@ -150,6 +150,7 @@ class MembersController < ApplicationController
       @tick_interval = @member.blood_pressure_tick_interval(@pre_time,@last_time)
       @data1 = @member.get_systolic(@pre_time,@last_time)
       @data2 = @member.get_diastolic(@pre_time,@last_time)
+      @data3 = @member.get_pulse(@pre_time,@last_time)
       @blood_pressure_chart = LazyHighCharts::HighChart.new('spline') do |f|
           f.chart({:defaultSeriesType=>"spline" } )
           f.options[:title][:text] = "#{@last_time.to_s[0,7]}月内血压趋势"
@@ -190,6 +191,11 @@ class MembersController < ApplicationController
             :type=> 'spline',
             :name=> '舒张压',
             :data=> @data2
+          )
+          f.series(
+            :type=> 'spline',
+            :name=> '心率',
+            :data=> @data3
           )
           f.navigation(:menuItemStyle=>{:fontSize=>'10px'})
       end

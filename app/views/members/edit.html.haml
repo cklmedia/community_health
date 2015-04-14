@@ -1,7 +1,7 @@
 .edit_user_big_box
   .edit_user_pic
-    %h2 居民个人信息编辑
-    %img{:src => "/assets/session_pic.png"}
+    %h2{:style => "color:#2fa857"} 居民个人信息编辑
+    %img{:src => "/assets/person_info.png"}
   .edit_user_form
     = form_for(@member) do |f|
       .form-group
@@ -33,4 +33,4 @@
           %input.create_member_sex{:checked => "checked", :type => "checkbox",:name => "sex"}
       .form-group
         = f.text_area :health,:class=>'form-control',:placeholder=>'身体现状，包括已患有到慢性疾病，或者特殊情况。'
-      = f.submit "注册",:class=>'btn btn-success form_button'
+      = f.submit "保存",:class=>'btn btn-success form_button'

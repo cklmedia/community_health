@@ -30,6 +30,7 @@ class ApplicationController < ActionController::Base
       end
     end
   end
+
   def authenticate
     if ["members","doctors"].include?(params["controller"])
       return if params["action"] == "create"
