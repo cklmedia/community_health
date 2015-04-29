@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   def new
- 	render layout: false
+ 	  render layout: false
   end
   def create
   	if params[:admin]
